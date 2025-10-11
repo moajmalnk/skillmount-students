@@ -68,10 +68,10 @@ const Contact = () => {
                 We'll respond within 24 hours
               </p>
               <a 
-                href="mailto:info@skillmount.com" 
+                href="mailto:moajmalnk@gmail.com" 
                 className="text-primary hover:underline"
               >
-                info@skillmount.com
+                moajmalnk@gmail.com
               </a>
             </CardContent>
           </Card>
