@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Newsletter Subscription - moajmalnk.in</title>
+    <style>
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.7;
+            color: #1f2937;
+            max-width: 650px;
+            margin: 0 auto;
+            padding: 24px;
+            background-color: #f9fafb;
+        }
+        
+        .email-container {
+            background: #ffffff;
+            border-radius: 16px;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            overflow: hidden;
+            border: 1px solid #e5e7eb;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #1e40af 0%, #3730a3 50%, #581c87 100%);
+            color: white;
+            padding: 40px 32px;
+            text-align: center;
+            position: relative;
+        }
+        
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="1"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+            opacity: 0.3;
+        }
+        
+        .header-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .header h1 {
+            margin: 0;
+            font-size: 28px;
+            font-weight: 700;
+            letter-spacing: -0.025em;
+            margin-bottom: 8px;
+        }
+        
+        .header p {
+            margin: 0;
+            opacity: 0.9;
+            font-size: 16px;
+            font-weight: 400;
+            letter-spacing: 0.025em;
+            color: #ffce2d;
+        }
+        
+        .content {
+            padding: 40px 32px;
+        }
+        
+        .notification-card {
+            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+            border-left: 4px solid #1e40af;
+            padding: 28px;
+            margin: 32px 0;
+            border-radius: 12px;
+            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+        }
+        
+        .notification-card h3 {
+            margin: 0 0 12px 0;
+            color: #1e40af;
+            font-size: 20px;
+            font-weight: 600;
+            letter-spacing: -0.025em;
+        }
+        
+        .notification-card p {
+            margin: 0;
+            color: #4b5563;
+            font-size: 15px;
+            line-height: 1.6;
+        }
+        
+        .subscriber-info {
+            background: #ffffff;
+            border: 1px solid #e5e7eb;
+            border-radius: 16px;
+            padding: 32px;
+            margin: 32px 0;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+        }
+        
+        .info-row {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            padding: 16px 0;
+            border-bottom: 1px solid #f3f4f6;
+        }
+        
+        .info-row:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+        }
+        
+        .info-label {
+            font-weight: 600;
+            color: #374151;
+            min-width: 160px;
+            font-size: 15px;
+            letter-spacing: 0.025em;
+        }
+        
+        .info-value {
+            color: #6b7280;
+            font-size: 15px;
+            flex: 1;
+            line-height: 1.5;
+        }
+        
+        .highlight {
+            background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%);
+            color: #1e40af;
+            padding: 4px 12px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 14px;
+            letter-spacing: 0.025em;
+        }
+        
+        .action-section {
+            background: linear-gradient(135deg, #fef7cd 0%, #fef3c7 100%);
+            border: 1px solid #f59e0b;
+            border-radius: 12px;
+            padding: 28px;
+            margin: 32px 0;
+            text-align: center;
+            box-shadow: 0 2px 4px -1px rgba(245, 158, 11, 0.1);
+        }
+        
+        .action-section h4 {
+            margin: 0 0 12px 0;
+            color: #92400e;
+            font-size: 18px;
+            font-weight: 600;
+            letter-spacing: -0.025em;
+        }
+        
+        .action-section p {
+            margin: 0;
+            color: #78350f;
+            font-size: 15px;
+            line-height: 1.6;
+        }
+        
+        .footer {
+            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+            padding: 32px;
+            text-align: center;
+            border-top: 1px solid #e5e7eb;
+        }
+        
+        .footer p {
+            margin: 0;
+            color: #6b7280;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+        
+        .website-link {
+            color: #1e40af;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.2s ease;
+        }
+        
+        .website-link:hover {
+            color: #3730a3;
+        }
+        
+        .timestamp {
+            color: #9ca3af;
+            font-size: 13px;
+            margin-top: 20px;
+            text-align: center;
+            font-weight: 500;
+            letter-spacing: 0.025em;
+        }
+        
+        @media (max-width: 600px) {
+            body {
+                padding: 16px;
+            }
+            
+            .header {
+                padding: 32px 24px;
+            }
+            
+            .header h1 {
+                font-size: 24px;
+            }
+            
+            .header p {
+                font-size: 15px;
+            }
+            
+            .content {
+                padding: 32px 24px;
+            }
+            
+            .subscriber-info {
+                padding: 24px 20px;
+            }
+            
+            .notification-card {
+                padding: 24px 20px;
+            }
+            
+            .action-section {
+                padding: 24px 20px;
+            }
+            
+            .footer {
+                padding: 24px 20px;
+            }
+            
+            .info-row {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 8px;
+            }
+            
+            .info-label {
+                min-width: auto;
+                margin-bottom: 0;
+                font-size: 14px;
+            }
+            
+            .info-value {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="email-container">
+        <!-- Header -->
+        <div class="header">
+            <div class="header-content">
+                <h1>Newsletter Subscription</h1>
+                <p>moajmalnk.in</p>
+            </div>
+        </div>
+        
+        <!-- Main Content -->
+        <div class="content">
+            <!-- Notification Card -->
+            <div class="notification-card">
+                <h3>New Subscriber Registration</h3>
+                <p>A new subscriber has registered for your newsletter and is awaiting addition to your mailing list.</p>
+            </div>
+            
+            <!-- Subscriber Information -->
+            <div class="subscriber-info">
+                <div class="info-row">
+                    <span class="info-label">Subscriber Email</span>
+                    <span class="info-value"><span class="highlight">{{from_email}}</span></span>
+                </div>
+                
+                <div class="info-row">
+                    <span class="info-label">Registration Date</span>
+                    <span class="info-value">{{current_date}}</span>
+                </div>
+                
+                <div class="info-row">
+                    <span class="info-label">Website Source</span>
+                    <span class="info-value"><a href="https://moajmalnk.in" class="website-link">moajmalnk.in</a></span>
+                </div>
+                
+                <div class="info-row">
+                    <span class="info-label">Source Location</span>
+                    <span class="info-value">Footer Newsletter Subscription</span>
+                </div>
+                
+                <div class="info-row">
+                    <span class="info-label">Reply Address</span>
+                    <span class="info-value">{{reply_to}}</span>
+                </div>
+            </div>
+            
+            <!-- Action Section -->
+            <div class="action-section">
+                <h4>Action Required</h4>
+                <p>Please add this email address to your newsletter mailing list to begin sending updates to this subscriber.</p>
+            </div>
+        </div>
+        
+        <!-- Footer -->
+        <div class="footer">
+            <p>
+                This notification was automatically generated from the <a href="https://moajmalnk.in" class="website-link">moajmalnk.in</a> newsletter subscription system.
+            </p>
+            <div class="timestamp">
+                Generated {{timestamp}}
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -6,7 +6,7 @@ Disallow: /admin
 Disallow: /api/
 
 # Sitemap location
-Sitemap: https://students.skillmount.com/sitemap.xml
+Sitemap: https://students.moajmalnk.in/sitemap.xml
 
 # Specific bot configurations
 User-agent: Googlebot

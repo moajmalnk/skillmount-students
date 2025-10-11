@@ -3,7 +3,8 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Mail, Phone, Github, ExternalLink, Star, Sparkles } from "lucide-react";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
+import { cn } from "@/lib/utils";
 
 interface StudentCardProps {
   id: number;
@@ -29,10 +30,43 @@ const StudentCard = ({
   isTopPerformer = false 
 }: StudentCardProps) => {
   const [imageError, setImageError] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
+  const [isLoaded, setIsLoaded] = useState(false);
+  const cardRef = useRef<HTMLElement>(null);
+
+  // Progressive loading with Intersection Observer
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          // Simulate content loading delay
+          setTimeout(() => setIsLoaded(true), 100);
+          observer.disconnect();
+        }
+      },
+      {
+        threshold: 0.1,
+        rootMargin: '50px'
+      }
+    );
+
+    if (cardRef.current) {
+      observer.observe(cardRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
   
   return (
     <article 
-      className="group relative flex flex-col bg-card border border-border/40 rounded-2xl overflow-hidden transition-all duration-500 hover:border-primary/30 hover:shadow-2xl hover:shadow-primary/5 hover:-translate-y-2 portfolio-card"
+      ref={cardRef}
+      className={cn(
+        "group relative flex flex-col bg-card border border-border/40 rounded-2xl overflow-hidden transition-all duration-500 hover:border-primary/30 hover:shadow-2xl hover:shadow-primary/5 hover:-translate-y-2 portfolio-card",
+        !isVisible && "opacity-0",
+        isVisible && !isLoaded && "opacity-50",
+        isLoaded && "opacity-100"
+      )}
       itemScope 
       itemType="https://schema.org/Person"
     >
@@ -57,8 +91,12 @@ const StudentCard = ({
           </span>
         </div>
         
-        {/* Preview Content */}
-        {domain && !imageError ? (
+        {/* Preview Content - Only load when visible */}
+        {!isVisible ? (
+          <div className="w-full h-full flex items-center justify-center bg-muted skeleton">
+            <div className="w-12 h-12 rounded-full border-2 border-primary border-t-transparent animate-spin" />
+          </div>
+        ) : domain && !imageError ? (
           <div className="relative w-full h-full">
             <iframe
               src={domain}

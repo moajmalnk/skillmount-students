@@ -237,13 +237,7 @@ const Admin = () => {
                 Sign In
               </Button>
             </form>
-            
-            <div className="mt-6 p-3 bg-muted rounded-lg">
-              <p className="text-xs text-muted-foreground text-center flex items-center justify-center gap-2">
-                <AlertCircle className="w-4 h-4" />
-                Demo credentials: admin@skillmount.com / admin123
-              </p>
-            </div>
+
           </CardContent>
         </Card>
       </div>
