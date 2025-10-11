@@ -11,6 +11,7 @@ import {
 import { Badge } from "@/components/ui/badge";
 import StudentCard from "@/components/StudentCard";
 import { Search, Filter, X } from "lucide-react";
+import { BATCHES, formatBatchForDisplay, getBatchesSortedLatestFirst } from "@/lib/batches";
 
 const Students = () => {
   const [searchQuery, setSearchQuery] = useState("");
@@ -18,20 +19,24 @@ const Students = () => {
   const [selectedSkills, setSelectedSkills] = useState<string[]>([]);
   
   // Mock data - replace with API calls
-  const batches = Array.from({ length: 12 }, (_, i) => `Batch ${12 - i} - ${2024 - Math.floor(i / 2)}`);
-  const allSkills = ["React", "Node.js", "TypeScript", "Python", "Vue.js", "Angular", "MongoDB", "PostgreSQL", "AWS", "Docker"];
+  const batches = getBatchesSortedLatestFirst();
+  const allSkills = ["WordPress", "Elementor", "WooCommerce", "SEO Optimization", "Custom Theme Design", "Gutenberg", "Security & Backup", "Speed Optimization", "E-commerce", "Accessibility"];
   
-  const students = Array.from({ length: 50 }, (_, i) => ({
-    id: i + 1,
-    name: `Student ${i + 1}`,
-    batch: batches[i % batches.length],
-    domain: i % 3 === 0 ? "https://example.com" : undefined,
-    github: i % 2 === 0 ? "https://github.com/student" : undefined,
-    email: `student${i + 1}@example.com`,
-    phone: i % 4 === 0 ? "+1234567890" : undefined,
-    skills: allSkills.slice(0, Math.floor(Math.random() * 4) + 2),
-    isTopPerformer: i < 8
-  }));
+  const students = Array.from({ length: 50 }, (_, i) => {
+    const batchId = batches[i % batches.length].id;
+    return {
+      id: i + 1,
+      name: `Student ${i + 1}`,
+      batchId: batchId,
+      batch: formatBatchForDisplay(batchId),
+      domain: i % 3 === 0 ? "https://moajmalnk.in" : undefined,
+      github: i % 2 === 0 ? "https://github.com/student" : undefined,
+      email: `student${i + 1}@example.com`,
+      phone: i % 4 === 0 ? "+1234567890" : undefined,
+      skills: allSkills.slice(0, Math.floor(Math.random() * 4) + 2),
+      isTopPerformer: i < 8
+    };
+  });
   
   const toggleSkill = (skill: string) => {
     setSelectedSkills(prev => 
@@ -49,7 +54,7 @@ const Students = () => {
   
   const filteredStudents = students.filter(student => {
     const matchesSearch = student.name.toLowerCase().includes(searchQuery.toLowerCase());
-    const matchesBatch = selectedBatch === "all" || student.batch === selectedBatch;
+    const matchesBatch = selectedBatch === "all" || student.batchId === selectedBatch;
     const matchesSkills = selectedSkills.length === 0 || 
       selectedSkills.some(skill => student.skills.includes(skill));
     
@@ -63,7 +68,7 @@ const Students = () => {
         <div className="text-center mb-12">
           <h1 className="text-5xl font-bold text-foreground mb-4">Student Directory</h1>
           <p className="text-xl text-muted-foreground">
-            Explore projects from 1,200+ talented developers across 12 batches
+            Explore projects from 1,200+ talented developers across {BATCHES.length} batches
           </p>
         </div>
         
@@ -88,8 +93,8 @@ const Students = () => {
                 <SelectContent>
                   <SelectItem value="all">All Batches</SelectItem>
                   {batches.map((batch) => (
-                    <SelectItem key={batch} value={batch}>
-                      {batch}
+                    <SelectItem key={batch.id} value={batch.id}>
+                      {formatBatchForDisplay(batch.id)}
                     </SelectItem>
                   ))}
                 </SelectContent>

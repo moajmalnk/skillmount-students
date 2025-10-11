@@ -3,45 +3,48 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { ArrowLeft, Mail, Phone, Github, ExternalLink, Award } from "lucide-react";
+import { formatBatchForDisplay } from "@/lib/batches";
 
 const StudentProfile = () => {
   const { id } = useParams();
   
   // Mock data - replace with API call
+  const batchId = "0925"; // September 2025 - latest batch
   const student = {
     id: Number(id),
     name: "Alex Johnson",
-    batch: "Batch 12 - 2024",
-    bio: "Passionate full-stack developer with a keen interest in building scalable web applications. Experienced in React, Node.js, and cloud technologies. Love solving complex problems and creating user-friendly interfaces.",
-    domain: "https://example.com",
+    batchId: batchId,
+    batch: formatBatchForDisplay(batchId),
+    bio: "Passionate WordPress developer with expertise in building custom themes and e-commerce solutions. Experienced in Elementor, WooCommerce, and website optimization. Love creating accessible and user-friendly websites.",
+    domain: "https://moajmalnk.in",
     github: "https://github.com/alexj",
     email: "alex@example.com",
     phone: "+1234567890",
-    skills: ["React", "Node.js", "TypeScript", "MongoDB", "AWS", "Docker"],
+    skills: ["WordPress", "Elementor", "WooCommerce", "Security & Backup", "E-commerce", "Accessibility"],
     isTopPerformer: true,
     achievements: [
-      "Best Project Award - Batch 12",
+      "Best Project Award - Batch 14",
       "Placed at Google with $95,000 package",
       "Contributed to 5+ open source projects"
     ],
     projects: [
       {
         name: "E-Commerce Platform",
-        description: "Full-stack e-commerce solution with payment integration",
-        tech: ["React", "Node.js", "MongoDB", "Stripe"],
-        link: "https://example.com/project1"
+        description: "Custom WooCommerce solution with advanced payment integration",
+        tech: ["WordPress", "WooCommerce", "Elementor", "SEO Optimization"],
+        link: "https://moajmalnk.in/project1"
       },
       {
-        name: "Social Media Dashboard",
-        description: "Analytics dashboard for social media management",
-        tech: ["React", "TypeScript", "Chart.js"],
-        link: "https://example.com/project2"
+        name: "Business Website",
+        description: "Professional business website with custom theme design",
+        tech: ["WordPress", "Custom Theme Design", "Gutenberg"],
+        link: "https://moajmalnk.in/project2"
       },
       {
-        name: "Task Management App",
-        description: "Real-time collaborative task tracking application",
-        tech: ["React", "Firebase", "Tailwind CSS"],
-        link: "https://example.com/project3"
+        name: "Portfolio Website",
+        description: "Fast and accessible portfolio website with advanced optimization",
+        tech: ["WordPress", "Speed Optimization", "Accessibility"],
+        link: "https://moajmalnk.in/project3"
       }
     ]
   };

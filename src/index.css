@@ -104,6 +104,386 @@ All colors MUST be HSL.
   }
 
   body {
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+/* Modern Animations & Utilities - Wall of Portfolios Inspired */
+@layer utilities {
+  /* Fade-in Animation - Enhanced */
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+      transform: translateY(20px) scale(0.98);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+  
+  .animate-fade-in {
+    animation: fade-in 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    opacity: 0;
+  }
+  
+  /* Stagger Animation for Children */
+  @keyframes stagger-fade {
+    from {
+      opacity: 0;
+      transform: translateY(15px) scale(0.98);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+  
+  .animate-stagger > * {
+    animation: stagger-fade 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    opacity: 0;
+  }
+  
+  .animate-stagger > *:nth-child(1) { animation-delay: 0ms; }
+  .animate-stagger > *:nth-child(2) { animation-delay: 100ms; }
+  .animate-stagger > *:nth-child(3) { animation-delay: 200ms; }
+  .animate-stagger > *:nth-child(4) { animation-delay: 300ms; }
+  .animate-stagger > *:nth-child(5) { animation-delay: 400ms; }
+  .animate-stagger > *:nth-child(6) { animation-delay: 500ms; }
+  
+  /* Badge Pulse Animation */
+  @keyframes badge-pulse {
+    0%, 100% {
+      transform: scale(1);
+      box-shadow: 0 4px 12px rgba(251, 191, 36, 0.4);
+    }
+    50% {
+      transform: scale(1.05);
+      box-shadow: 0 6px 20px rgba(251, 191, 36, 0.6);
+    }
+  }
+  
+  .animate-badge-pulse {
+    animation: badge-pulse 2s ease-in-out infinite;
+  }
+  
+  /* Portfolio Card Hover Effects */
+  .portfolio-card {
+    position: relative;
+  }
+  
+  .portfolio-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(135deg, transparent, hsl(var(--primary) / 0.1), transparent);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0;
+    transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  
+  .portfolio-card:hover::before {
+    opacity: 1;
+  }
+  
+  /* Smooth Gradient Text */
+  .gradient-text {
+    @apply bg-gradient-to-r from-primary via-primary/80 to-primary/60 bg-clip-text text-transparent;
+  }
+  
+  /* Glass Effect - Enhanced */
+  .glass-effect {
+    backdrop-filter: blur(12px) saturate(180%);
+    background: hsl(var(--background) / 0.8);
+    border: 1px solid hsl(var(--border) / 0.3);
+  }
+  
+  /* Hover Lift Effect - Refined */
+  .hover-lift {
+    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  
+  .hover-lift:hover {
+    transform: translateY(-8px);
+  }
+  
+  /* Smooth Shadow Transitions */
+  .shadow-smooth {
+    transition: box-shadow 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  
+  /* Custom Scrollbar - Enhanced */
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background: hsl(var(--muted) / 0.5);
+    border-radius: 100vh;
+  }
+  
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background: hsl(var(--primary) / 0.3);
+    border-radius: 100vh;
+    transition: background 0.3s ease;
+  }
+  
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--primary) / 0.5);
+  }
+  
+  /* Focus Visible Styling */
+  .focus-visible-ring {
+    @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background;
+  }
+  
+  /* Shimmer Effect for Loading States */
+  @keyframes shimmer {
+    0% {
+      transform: translateX(-100%);
+    }
+    100% {
+      transform: translateX(100%);
+    }
+  }
+  
+  .shimmer {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .shimmer::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, transparent, hsl(var(--background) / 0.3), transparent);
+    animation: shimmer 2s infinite;
+  }
+  
+  /* Masonry Grid Layout Enhancement */
+  .masonry-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+    align-items: start;
+  }
+  
+  @media (min-width: 768px) {
+    .masonry-grid {
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    }
+  }
+  
+  /* Elegant Entrance Animation */
+  @keyframes elegant-entrance {
+    0% {
+      opacity: 0;
+      transform: translateY(30px) rotateX(10deg);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0) rotateX(0);
+    }
+  }
+  
+  .animate-elegant-entrance {
+    animation: elegant-entrance 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    opacity: 0;
+  }
+  
+  /* Gradient Animation for Text */
+  @keyframes gradient-shift {
+    0%, 100% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+  }
+  
+  .animate-gradient {
+    background-size: 200% 200%;
+    animation: gradient-shift 4s ease infinite;
+  }
+  
+  /* Performance Hint for Animations */
+  .portfolio-card,
+  .animate-elegant-entrance,
+  .animate-fade-in {
+    will-change: transform, opacity;
+  }
+  
+  .portfolio-card:hover {
+    will-change: transform, box-shadow, border-color;
+  }
+}
+
+/* Component Enhancements */
+@layer components {
+  /* Enhanced Card Hover Effects */
+  .card-hover-effect {
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .card-hover-effect:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+  }
+  
+  /* Gradient Button */
+  .btn-gradient {
+    @apply bg-gradient-to-r from-primary to-primary/80 text-primary-foreground;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .btn-gradient:hover {
+    @apply shadow-xl;
+    transform: scale(1.02);
+  }
+  
+  /* Premium Border */
+  .border-premium {
+    border: 1px solid hsl(var(--border) / 0.4);
+  }
+  
+  .border-premium:hover {
+    border-color: hsl(var(--primary) / 0.3);
+  }
+}
+
+/* Performance Optimizations */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Typography Refinements */
+@layer base {
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-bold tracking-tight;
+  }
+  
+  p {
+    @apply leading-relaxed;
+  }
+  
+  a {
+    @apply transition-colors duration-200;
+  }
+}
+
+/* Quill Editor Styles */
+@layer components {
+  /* Quill editor container */
+  .ql-container {
     @apply bg-background text-foreground;
+    font-family: inherit;
+    font-size: 0.875rem;
+  }
+  
+  .ql-editor {
+    @apply min-h-[200px] p-4;
+    font-family: inherit;
+  }
+  
+  .ql-editor.ql-blank::before {
+    @apply text-muted-foreground italic;
+  }
+  
+  /* Toolbar styling */
+  .ql-toolbar.ql-snow {
+    @apply bg-muted/30 border-border rounded-t-md;
+  }
+  
+  .ql-container.ql-snow {
+    @apply border-border rounded-b-md;
+  }
+  
+  /* Toolbar buttons */
+  .ql-snow .ql-stroke {
+    @apply stroke-foreground;
+  }
+  
+  .ql-snow .ql-fill {
+    @apply fill-foreground;
+  }
+  
+  .ql-snow .ql-picker-label {
+    @apply text-foreground;
+  }
+  
+  .ql-toolbar button:hover,
+  .ql-toolbar button:focus,
+  .ql-toolbar button.ql-active {
+    @apply bg-primary/10;
+  }
+  
+  .ql-toolbar button:hover .ql-stroke,
+  .ql-toolbar button:focus .ql-stroke,
+  .ql-toolbar button.ql-active .ql-stroke {
+    @apply stroke-primary;
+  }
+  
+  .ql-toolbar button:hover .ql-fill,
+  .ql-toolbar button:focus .ql-fill,
+  .ql-toolbar button.ql-active .ql-fill {
+    @apply fill-primary;
+  }
+  
+  /* Dropdown menus */
+  .ql-snow .ql-picker-options {
+    @apply bg-popover border-border;
+  }
+  
+  .ql-snow .ql-picker-item:hover {
+    @apply bg-muted;
+  }
+  
+  /* Editor content styling for display */
+  .prose {
+    @apply text-foreground;
+  }
+  
+  .prose h1, .prose h2, .prose h3, .prose h4, .prose h5, .prose h6 {
+    @apply text-foreground;
+  }
+  
+  .prose a {
+    @apply text-primary hover:underline;
+  }
+  
+  .prose code {
+    @apply bg-muted px-1.5 py-0.5 rounded text-sm;
+  }
+  
+  .prose pre {
+    @apply bg-muted p-4 rounded-lg;
+  }
+  
+  .prose strong {
+    @apply font-semibold;
+  }
+  
+  .prose ul, .prose ol {
+    @apply my-4;
+  }
+  
+  .prose li {
+    @apply my-2;
   }
 }
