@@ -89,7 +89,7 @@ const Contact = () => {
                 href="tel:+1234567890" 
                 className="text-primary hover:underline"
               >
-                +1 (234) 567-8900
+                +91 8848676627
               </a>
             </CardContent>
           </Card>
@@ -104,7 +104,7 @@ const Contact = () => {
                 Come say hello at our office
               </p>
               <address className="text-primary not-italic">
-                123 Tech Street, Silicon Valley, CA 94000
+                Malappuram, Kerala, India, 676507
               </address>
             </CardContent>
           </Card>
@@ -156,7 +156,7 @@ const Contact = () => {
                       <Input
                         id="contact-phone"
                         type="tel"
-                        placeholder="+1 (234) 567-8900"
+                        placeholder="+91 8848676627"
                         value={contactForm.phone}
                         onChange={(e) => setContactForm({ ...contactForm, phone: e.target.value })}
                       />

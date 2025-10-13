@@ -489,6 +489,119 @@ All colors MUST be HSL.
     background-color: hsl(var(--primary) / 0.2);
     color: hsl(var(--foreground));
   }
+
+  /* Professional Background Enhancements */
+  .professional-bg {
+    background-attachment: fixed;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  .professional-bg-mobile {
+    background-attachment: scroll;
+  }
+
+  /* Professional Image Positioning */
+  .bg-position-center {
+    background-position: center center;
+  }
+
+  .bg-position-top {
+    background-position: center top;
+  }
+
+  .bg-position-bottom {
+    background-position: center bottom;
+  }
+
+  .bg-position-left {
+    background-position: left center;
+  }
+
+  .bg-position-right {
+    background-position: right center;
+  }
+
+  /* Responsive Background Sizing */
+  @media (max-width: 640px) {
+    .professional-bg {
+      background-size: cover;
+      background-position: center center;
+    }
+  }
+
+  @media (min-width: 641px) and (max-width: 1024px) {
+    .professional-bg {
+      background-size: cover;
+      background-position: center center;
+    }
+  }
+
+  @media (min-width: 1025px) {
+    .professional-bg {
+      background-size: cover;
+      background-position: center center;
+    }
+  }
+
+  /* Professional Shadow Enhancements */
+  .shadow-3xl {
+    box-shadow: 0 35px 60px -12px rgba(0, 0, 0, 0.25);
+  }
+
+  .shadow-4xl {
+    box-shadow: 0 50px 80px -12px rgba(0, 0, 0, 0.3);
+  }
+
+  /* Professional Backdrop Blur */
+  .backdrop-blur-xl {
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+  }
+
+  .backdrop-blur-2xl {
+    backdrop-filter: blur(40px);
+    -webkit-backdrop-filter: blur(40px);
+  }
+
+  /* Professional Gradient Borders */
+  .gradient-border-professional {
+    position: relative;
+    background: linear-gradient(white, white) padding-box,
+                linear-gradient(135deg, hsl(var(--primary)), hsl(var(--accent))) border-box;
+    border: 2px solid transparent;
+  }
+
+  /* Professional Hover Effects */
+  .professional-hover {
+    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .professional-hover:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  }
+
+  /* Professional Loading Animation */
+  @keyframes professional-loading {
+    0% {
+      opacity: 0;
+      transform: scale(0.95);
+    }
+    50% {
+      opacity: 0.5;
+      transform: scale(1.02);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  .animate-professional-loading {
+    animation: professional-loading 1.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
 }
 
 /* Component Enhancements */

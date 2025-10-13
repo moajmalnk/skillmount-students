@@ -36,8 +36,8 @@ export const defaultSitemapUrls: SitemapUrl[] = [
     changefreq: 'daily',
     priority: 1.0
   },
-  {
-    loc: 'https:/students.moajmalnk.in/students',
+    {
+      loc: 'https://students.moajmalnk.in/students',
     lastmod: new Date().toISOString().split('T')[0],
     changefreq: 'weekly',
     priority: 0.9
