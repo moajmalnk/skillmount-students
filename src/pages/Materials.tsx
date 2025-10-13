@@ -1,14 +1,24 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { FileText, Video, Code, Download, ExternalLink, Palette, Package, FolderOpen, PlayCircle } from "lucide-react";
+import { FileText, Video, Code, Download, ExternalLink, Palette, Package, FolderOpen, PlayCircle, ArrowRight, Sparkles, BookOpen, Award } from "lucide-react";
 import { Separator } from "@/components/ui/separator";
+import { WobbleCard } from "@/components/ui/wobble-card";
+import { TextGenerateEffect } from "@/components/ui/text-generate-effect";
+import { ContainerScrollAnimation } from "@/components/ui/container-scroll-animation";
+import { FollowingPointer } from "@/components/ui/following-pointer";
+import SEO from "@/components/SEO";
 
 const Materials = () => {
   const [activeTab, setActiveTab] = useState("videos");
   const [selectedVideo, setSelectedVideo] = useState<string | null>(null);
+  const [isVisible, setIsVisible] = useState(false);
+  
+  useEffect(() => {
+    setIsVisible(true);
+  }, []);
   
   // WordPress/Elementor focused materials
   const materials = {
@@ -411,380 +421,687 @@ add_action('init', 'create_portfolio_post_type');`
     ]
   };
 
+  // Structured Data for SEO
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "EducationalResource",
+    "name": "SkillMount Learning Materials",
+    "description": "Comprehensive WordPress, Elementor, and WooCommerce learning resources",
+    "url": "https://students.moajmalnk.in/materials",
+    "provider": {
+      "@type": "EducationalOrganization",
+      "name": "SkillMount",
+      "founder": {
+        "@type": "Person",
+        "name": "Mohammed Ajmal NK"
+      }
+    },
+    "hasPart": [
+      {
+        "@type": "LearningResource",
+        "name": "Video Tutorials",
+        "description": "Comprehensive video tutorials for WordPress and No-Code platforms"
+      },
+      {
+        "@type": "LearningResource", 
+        "name": "Themes & Templates",
+        "description": "Professional WordPress themes and Elementor templates"
+      }
+    ]
+  };
+
   return (
-    <div className="min-h-screen bg-background py-12">
-      <div className="container mx-auto px-4 max-w-7xl">
-        {/* Header */}
-        <div className="text-center mb-12">
-          <h1 className="text-5xl font-bold text-foreground mb-4">
-            Learning Materials & Resources
-          </h1>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Access comprehensive WordPress, Elementor, and WooCommerce resources. 
-            Everything you need to build professional websites.
-          </p>
-        </div>
-        
-        {/* Tabs */}
-        <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
-          <TabsList className="grid w-full max-w-4xl mx-auto grid-cols-5 mb-8 h-auto">
-            <TabsTrigger value="videos" className="flex flex-col items-center gap-1 py-3">
-              <Video className="w-5 h-5" />
-              <span className="text-xs md:text-sm">Tutorial Videos</span>
-            </TabsTrigger>
-            <TabsTrigger value="themes" className="flex flex-col items-center gap-1 py-3">
-              <Palette className="w-5 h-5" />
-              <span className="text-xs md:text-sm">Themes</span>
-            </TabsTrigger>
-            <TabsTrigger value="plugins" className="flex flex-col items-center gap-1 py-3">
-              <Package className="w-5 h-5" />
-              <span className="text-xs md:text-sm">Plugin Guides</span>
-            </TabsTrigger>
-            <TabsTrigger value="assets" className="flex flex-col items-center gap-1 py-3">
-              <FolderOpen className="w-5 h-5" />
-              <span className="text-xs md:text-sm">Assets</span>
-            </TabsTrigger>
-            <TabsTrigger value="snippets" className="flex flex-col items-center gap-1 py-3">
-              <Code className="w-5 h-5" />
-              <span className="text-xs md:text-sm">Code</span>
-            </TabsTrigger>
-          </TabsList>
+    <FollowingPointer>
+      {/* Advanced SEO Meta Tags */}
+      <SEO
+        title="Learning Materials - WordPress & No-Code Resources | SkillMount"
+        description="Access comprehensive learning materials including video tutorials, themes, plugins, and code snippets for WordPress, Elementor, and WooCommerce development."
+        keywords="WordPress tutorials, Elementor training, WooCommerce guides, learning materials, web development resources, SkillMount, Mohammed Ajmal NK"
+        url="https://students.moajmalnk.in/materials"
+        image="https://moajmalnk.in/assets/img/logo/logo-lightaj.png"
+        author="Mohammed Ajmal NK"
+        structuredData={structuredData}
+      />
+
+      <div className="min-h-screen bg-background">
+        {/* Hero Section - Enhanced */}
+        <section className="min-h-screen bg-background relative">
+          {/* Professional Background Layers */}
+          <div className="absolute inset-0">
+            {/* Primary Background Image */}
+            <div 
+              className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-[0.03]"
+              style={{
+                backgroundImage: 'url("/tutor-hero.jpg")',
+                backgroundPosition: 'center center',
+                backgroundSize: 'cover',
+                backgroundAttachment: 'fixed'
+              }}
+            ></div>
+            
+            {/* Professional Gradient Overlays */}
+            <div className="absolute inset-0 bg-gradient-to-br from-background via-background/95 to-background/90"></div>
+            <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-background/60"></div>
+            
+            {/* Ultra-subtle professional texture */}
+            <div className="absolute inset-0 opacity-[0.015]" style={{
+              backgroundImage: 'radial-gradient(circle at 2px 2px, currentColor 1px, transparent 0)',
+              backgroundSize: '32px 32px'
+            }}></div>
+          </div>
           
-          {/* Tutorial Videos Tab */}
-          <TabsContent value="videos" className="space-y-6">
-            <div className="text-center mb-6">
-              <p className="text-muted-foreground">
-                Watch comprehensive video tutorials on WordPress, Elementor, and WooCommerce
-              </p>
-            </div>
-            
-            {/* Video Player Section */}
-            {selectedVideo && (
-              <Card className="mb-8 overflow-hidden">
-                <div className="aspect-video w-full">
-                  <iframe
-                    src={selectedVideo}
-                    title="Tutorial Video"
-                    className="w-full h-full"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen
-                  />
+          <div className="container mx-auto px-6 max-w-7xl relative z-10">
+            <div className={`transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+              <div className="text-center pt-20 pb-16">
+                {/* Ultra-minimal badge */}
+                <div className="mt-10 flex items-center justify-center gap-2.5 bg-primary/[0.03] border border-primary/10 rounded-full px-5 py-2 w-fit mx-auto mb-8">
+                  <Sparkles className="w-3.5 h-3.5 text-primary" />
+                  <span className="text-xs font-medium text-foreground tracking-wide">Learning Resources</span>
                 </div>
-                <CardContent className="pt-4">
-                  <Button 
-                    variant="outline" 
-                    size="sm"
-                    onClick={() => setSelectedVideo(null)}
-                  >
-                    Close Video
-                  </Button>
-                </CardContent>
-              </Card>
-            )}
-            
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {materials.videos.map((video) => (
-                <Card key={video.id} className="hover:shadow-lg transition-all duration-300 group">
-                  <CardHeader>
-                    <div className="flex items-start justify-between mb-2">
-                      <Badge variant="secondary">{video.category}</Badge>
-                      <PlayCircle className="w-6 h-6 text-primary group-hover:text-primary/80 transition-colors" />
-                    </div>
-                    <CardTitle className="text-lg leading-tight">{video.title}</CardTitle>
-                    <CardDescription className="text-sm mt-2">
-                      {video.description}
-                    </CardDescription>
-                  </CardHeader>
-                  <CardContent>
-                    <div className="flex flex-wrap gap-1 mb-4">
-                      {video.topics.map((topic, index) => (
-                        <Badge key={index} variant="outline" className="text-xs">
-                          {topic}
-                        </Badge>
-                      ))}
-                    </div>
-                    <Separator className="my-4" />
-                    <div className="flex items-center justify-between">
-                      <span className="text-sm text-muted-foreground flex items-center gap-1">
-                        <Video className="w-4 h-4" />
-                        {video.duration}
-                      </span>
-                      <div className="flex gap-2">
-                        <Button 
-                          size="sm" 
-                          onClick={() => setSelectedVideo(video.embedUrl)}
-                        >
-                          Watch
-                        </Button>
-                        <Button size="sm" variant="outline" asChild>
-                          <a href={video.url} target="_blank" rel="noopener noreferrer">
-                            <ExternalLink className="w-4 h-4" />
-                          </a>
-                        </Button>
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
-              ))}
+                
+                <div className="space-y-8 mb-16">
+                  <TextGenerateEffect 
+                    words="Learning Materials & Resources" 
+                    className="text-5xl md:text-7xl lg:text-8xl font-bold leading-tight text-foreground tracking-tight max-w-6xl mx-auto"
+                    duration={2}
+                  />
+                  <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed max-w-4xl mx-auto font-light">
+                    Access comprehensive WordPress, Elementor, and WooCommerce resources. 
+                    Everything you need to build professional websites and launch your career.
+                  </p>
+                </div>
+
+                {/* Quick Stats */}
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-8 py-8 border-t border-border/20 max-w-4xl mx-auto">
+                  <div className="space-y-2">
+                    <div className="text-4xl md:text-5xl font-bold text-primary">{materials.videos.length}</div>
+                    <div className="text-sm text-muted-foreground font-medium">Video Tutorials</div>
+                  </div>
+                  <div className="space-y-2">
+                    <div className="text-4xl md:text-5xl font-bold text-primary">{materials.themes.length}</div>
+                    <div className="text-sm text-muted-foreground font-medium">Themes & Templates</div>
+                  </div>
+                  <div className="space-y-2">
+                    <div className="text-4xl md:text-5xl font-bold text-primary">{materials.plugins.length}</div>
+                    <div className="text-sm text-muted-foreground font-medium">Plugin Guides</div>
+                  </div>
+                  <div className="space-y-2">
+                    <div className="text-4xl md:text-5xl font-bold text-primary">{materials.snippets.length}</div>
+                    <div className="text-sm text-muted-foreground font-medium">Code Snippets</div>
+                  </div>
+                </div>
+              </div>
             </div>
-          </TabsContent>
+          </div>
+        </section>
+        
+        {/* Materials Navigation - Enhanced */}
+        <ContainerScrollAnimation direction="up" speed="normal">
+          <section className="pt-4 sm:pt-16 bg-background relative overflow-hidden">
+            {/* Minimal ambient lighting */}
+            <div className="absolute top-1/4 right-1/4 w-[300px] h-[300px] bg-primary/[0.02] rounded-full blur-3xl pointer-events-none"></div>
+            <div className="absolute bottom-1/4 left-1/4 w-[400px] h-[400px] bg-accent/[0.02] rounded-full blur-3xl pointer-events-none"></div>
+            
+            <div className="container mx-auto px-6 max-w-7xl relative">
+              <div className="text-center mb-12">
+                <div className="inline-flex items-center gap-2.5 bg-primary/[0.03] border border-primary/10 rounded-full px-5 py-2 mb-8">
+                  <BookOpen className="w-3.5 h-3.5 text-primary" />
+                  <span className="text-xs font-medium text-foreground tracking-wide">Browse Materials</span>
+                </div>
+                <TextGenerateEffect 
+                  words="Choose Your Learning Path" 
+                  className="text-3xl md:text-5xl font-bold text-foreground mb-8 tracking-tight leading-[0.95]"
+                  duration={1.5}
+                />
+              </div>
+              
+              {/* Enhanced Tabs */}
+                <div className="flex justify-center mb-12">
+                  <WobbleCard className="border border-border/30 rounded-3xl overflow-hidden bg-card/30 backdrop-blur-sm shadow-xl hover:shadow-2xl transition-all duration-700">
+                    <TabsList className="grid grid-cols-5 h-auto bg-transparent p-2 gap-2">
+                      <TabsTrigger 
+                        value="videos" 
+                        className="flex flex-col items-center gap-2 py-4 px-6 rounded-2xl data-[state=active]:bg-primary data-[state=active]:text-primary-foreground transition-all duration-300 hover:bg-primary/10 group"
+                      >
+                        <Video className="w-5 h-5 group-hover:scale-110 transition-transform duration-300" />
+                        <span className="text-xs md:text-sm font-medium">Tutorial Videos</span>
+                      </TabsTrigger>
+                      <TabsTrigger 
+                        value="themes" 
+                        className="flex flex-col items-center gap-2 py-4 px-6 rounded-2xl data-[state=active]:bg-primary data-[state=active]:text-primary-foreground transition-all duration-300 hover:bg-primary/10 group"
+                      >
+                        <Palette className="w-5 h-5 group-hover:scale-110 transition-transform duration-300" />
+                        <span className="text-xs md:text-sm font-medium">Themes</span>
+                      </TabsTrigger>
+                      <TabsTrigger 
+                        value="plugins" 
+                        className="flex flex-col items-center gap-2 py-4 px-6 rounded-2xl data-[state=active]:bg-primary data-[state=active]:text-primary-foreground transition-all duration-300 hover:bg-primary/10 group"
+                      >
+                        <Package className="w-5 h-5 group-hover:scale-110 transition-transform duration-300" />
+                        <span className="text-xs md:text-sm font-medium">Plugin Guides</span>
+                      </TabsTrigger>
+                      <TabsTrigger 
+                        value="assets" 
+                        className="flex flex-col items-center gap-2 py-4 px-6 rounded-2xl data-[state=active]:bg-primary data-[state=active]:text-primary-foreground transition-all duration-300 hover:bg-primary/10 group"
+                      >
+                        <FolderOpen className="w-5 h-5 group-hover:scale-110 transition-transform duration-300" />
+                        <span className="text-xs md:text-sm font-medium">Assets</span>
+                      </TabsTrigger>
+                      <TabsTrigger 
+                        value="snippets" 
+                        className="flex flex-col items-center gap-2 py-4 px-6 rounded-2xl data-[state=active]:bg-primary data-[state=active]:text-primary-foreground transition-all duration-300 hover:bg-primary/10 group"
+                      >
+                        <Code className="w-5 h-5 group-hover:scale-110 transition-transform duration-300" />
+                        <span className="text-xs md:text-sm font-medium">Code</span>
+                      </TabsTrigger>
+                    </TabsList>
+                  </WobbleCard>
+                </div>
+            </div>
+          </section>
+        </ContainerScrollAnimation>
+          
+        {/* Tutorial Videos Tab */}
+        <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
+          <ContainerScrollAnimation direction="up" speed="normal">
+            <TabsContent value="videos" className="space-y-6">
+              <div className="container mx-auto px-6 max-w-7xl">
+                <div className="text-center mb-12">
+                  <div className="inline-flex items-center gap-2.5 bg-primary/[0.03] border border-primary/10 rounded-full px-5 py-2 mb-8">
+                    <Video className="w-3.5 h-3.5 text-primary" />
+                    <span className="text-xs font-medium text-foreground tracking-wide">Video Tutorials</span>
+                  </div>
+                  <TextGenerateEffect 
+                    words="Master with Video Learning" 
+                    className="text-3xl md:text-5xl font-bold text-foreground mb-8 tracking-tight leading-[0.95]"
+                    duration={1.5}
+                  />
+                  <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed font-light">
+                    Watch comprehensive video tutorials on WordPress, Elementor, and WooCommerce
+                  </p>
+                </div>
+                
+                {/* Video Player Section */}
+                {selectedVideo && (
+                  <WobbleCard className="mb-12 border border-border/30 rounded-3xl overflow-hidden bg-card/30 backdrop-blur-sm shadow-xl hover:shadow-2xl transition-all duration-700">
+                    <div className="aspect-video w-full">
+                      <iframe
+                        src={selectedVideo}
+                        title="Tutorial Video"
+                        className="w-full h-full rounded-t-3xl"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowFullScreen
+                      />
+                    </div>
+                    <div className="p-6 bg-card/50 backdrop-blur-sm">
+                      <Button 
+                        variant="outline" 
+                        size="sm"
+                        onClick={() => setSelectedVideo(null)}
+                        className="rounded-full border-border/40 hover:border-primary/50 hover:bg-primary/5 hover:text-primary transition-all duration-300"
+                      >
+                        Close Video
+                      </Button>
+                    </div>
+                  </WobbleCard>
+                )}
+                
+                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                  {materials.videos.map((video, index) => (
+                    <div 
+                      key={video.id}
+                      className="animate-elegant-entrance"
+                      style={{ 
+                        animationDelay: `${index * 120}ms`,
+                        animationFillMode: 'both'
+                      }}
+                    >
+                      <WobbleCard className="border border-border/30 rounded-3xl hover:border-primary/20 hover:shadow-xl hover:shadow-primary/5 transition-all duration-700 group hover:-translate-y-2 bg-card/30 backdrop-blur-sm overflow-hidden h-full">
+                        <CardHeader className="p-8">
+                          <div className="flex items-start justify-between mb-4">
+                            <Badge variant="secondary" className="rounded-full px-3 py-1 text-xs font-medium">{video.category}</Badge>
+                            <PlayCircle className="w-6 h-6 text-primary group-hover:text-primary/80 transition-colors group-hover:scale-110" />
+                          </div>
+                          <CardTitle className="text-lg leading-tight mb-3 group-hover:text-primary transition-colors duration-300">{video.title}</CardTitle>
+                          <CardDescription className="text-sm text-muted-foreground leading-relaxed">
+                            {video.description}
+                          </CardDescription>
+                        </CardHeader>
+                        <CardContent className="p-8 pt-0">
+                          <div className="flex flex-wrap gap-2 mb-6">
+                            {video.topics.map((topic, topicIndex) => (
+                              <Badge key={topicIndex} variant="outline" className="text-xs rounded-full border-border/40 hover:border-primary/50 transition-colors">
+                                {topic}
+                              </Badge>
+                            ))}
+                          </div>
+                          <Separator className="my-6 bg-border/30" />
+                          <div className="flex items-center justify-between">
+                            <span className="text-sm text-muted-foreground flex items-center gap-2">
+                              <Video className="w-4 h-4" />
+                              {video.duration}
+                            </span>
+                            <div className="flex gap-2">
+                              <Button 
+                                size="sm" 
+                                onClick={() => setSelectedVideo(video.embedUrl)}
+                                className="rounded-full bg-primary hover:bg-primary/90 transition-all duration-300 group-hover:scale-105"
+                              >
+                                Watch
+                              </Button>
+                              <Button size="sm" variant="outline" asChild className="rounded-full border-border/40 hover:border-primary/50 hover:bg-primary/5 hover:text-primary transition-all duration-300">
+                                <a href={video.url} target="_blank" rel="noopener noreferrer">
+                                  <ExternalLink className="w-4 h-4" />
+                                </a>
+                              </Button>
+                            </div>
+                          </div>
+                        </CardContent>
+                      </WobbleCard>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </TabsContent>
+          </ContainerScrollAnimation>
           
           {/* Themes & Templates Tab */}
-          <TabsContent value="themes" className="space-y-6">
-            <div className="text-center mb-6">
-              <p className="text-muted-foreground">
-                Pre-built WordPress themes and Elementor templates ready to use
-              </p>
-            </div>
-            <div className="grid md:grid-cols-2 gap-6">
-              {materials.themes.map((theme) => (
-                <Card key={theme.id} className="hover:shadow-lg transition-all duration-300">
-                  <CardHeader>
-                    <div className="flex items-start justify-between mb-2">
-                      <div className="flex gap-2">
-                        <Badge>{theme.type}</Badge>
-                        <Badge variant="outline">v{theme.version}</Badge>
-                      </div>
-                      <Palette className="w-6 h-6 text-primary" />
+          <ContainerScrollAnimation direction="up" speed="normal">
+            <TabsContent value="themes" className="space-y-6">
+              <div className="container mx-auto px-6 max-w-7xl">
+                <div className="text-center mb-12">
+                  <div className="inline-flex items-center gap-2.5 bg-primary/[0.03] border border-primary/10 rounded-full px-5 py-2 mb-8">
+                    <Palette className="w-3.5 h-3.5 text-primary" />
+                    <span className="text-xs font-medium text-foreground tracking-wide">Themes & Templates</span>
+                  </div>
+                  <TextGenerateEffect 
+                    words="Professional Themes Ready to Use" 
+                    className="text-3xl md:text-5xl font-bold text-foreground mb-8 tracking-tight leading-[0.95]"
+                    duration={1.5}
+                  />
+                  <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed font-light">
+                    Pre-built WordPress themes and Elementor templates ready to use
+                  </p>
+                </div>
+                
+                <div className="grid md:grid-cols-2 gap-8">
+                  {materials.themes.map((theme, index) => (
+                    <div 
+                      key={theme.id}
+                      className="animate-elegant-entrance"
+                      style={{ 
+                        animationDelay: `${index * 150}ms`,
+                        animationFillMode: 'both'
+                      }}
+                    >
+                      <WobbleCard className="border border-border/30 rounded-3xl hover:border-primary/20 hover:shadow-xl hover:shadow-primary/5 transition-all duration-700 group hover:-translate-y-2 bg-card/30 backdrop-blur-sm overflow-hidden h-full">
+                        <CardHeader className="p-8">
+                          <div className="flex items-start justify-between mb-4">
+                            <div className="flex gap-2">
+                              <Badge className="rounded-full px-3 py-1 text-xs font-medium">{theme.type}</Badge>
+                              <Badge variant="outline" className="rounded-full px-3 py-1 text-xs border-border/40">v{theme.version}</Badge>
+                            </div>
+                            <Palette className="w-6 h-6 text-primary group-hover:scale-110 transition-transform duration-300" />
+                          </div>
+                          <CardTitle className="text-xl mb-3 group-hover:text-primary transition-colors duration-300">{theme.title}</CardTitle>
+                          <CardDescription className="text-muted-foreground leading-relaxed">
+                            {theme.description}
+                          </CardDescription>
+                        </CardHeader>
+                        <CardContent className="p-8 pt-0">
+                          <div className="space-y-6">
+                            <div className="flex flex-wrap gap-2">
+                              {theme.features.map((feature, featureIndex) => (
+                                <Badge key={featureIndex} variant="secondary" className="text-xs rounded-full border-border/40 hover:border-primary/50 transition-colors">
+                                  {feature}
+                                </Badge>
+                              ))}
+                            </div>
+                            <Separator className="bg-border/30" />
+                            <div className="flex items-center justify-between">
+                              <span className="text-sm text-muted-foreground">
+                                Size: {theme.size}
+                              </span>
+                              <div className="flex gap-2">
+                                <Button size="sm" variant="outline" asChild className="rounded-full border-border/40 hover:border-primary/50 hover:bg-primary/5 hover:text-primary transition-all duration-300">
+                                  <a href={theme.previewUrl} target="_blank" rel="noopener noreferrer">
+                                    Preview
+                                  </a>
+                                </Button>
+                                <Button size="sm" asChild className="rounded-full bg-primary hover:bg-primary/90 transition-all duration-300 group-hover:scale-105">
+                                  <a href={theme.downloadUrl} download>
+                                    <Download className="w-4 h-4 mr-2" />
+                                    Download
+                                  </a>
+                                </Button>
+                              </div>
+                            </div>
+                          </div>
+                        </CardContent>
+                      </WobbleCard>
                     </div>
-                    <CardTitle className="text-xl">{theme.title}</CardTitle>
-                    <CardDescription className="mt-2">
-                      {theme.description}
-                    </CardDescription>
-                  </CardHeader>
-                  <CardContent>
-                    <div className="space-y-4">
-                      <div className="flex flex-wrap gap-2">
-                        {theme.features.map((feature, index) => (
-                          <Badge key={index} variant="secondary" className="text-xs">
-                            {feature}
-                          </Badge>
-                        ))}
-                      </div>
-                      <Separator />
-                      <div className="flex items-center justify-between">
-                        <span className="text-sm text-muted-foreground">
-                          Size: {theme.size}
-                        </span>
-                        <div className="flex gap-2">
-                          <Button size="sm" variant="outline" asChild>
-                            <a href={theme.previewUrl} target="_blank" rel="noopener noreferrer">
-                              Preview
-                            </a>
-                          </Button>
-                          <Button size="sm" asChild>
-                            <a href={theme.downloadUrl} download>
-                              <Download className="w-4 h-4 mr-2" />
-                              Download
-                            </a>
-                          </Button>
-                        </div>
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-          </TabsContent>
+                  ))}
+                </div>
+              </div>
+            </TabsContent>
+          </ContainerScrollAnimation>
           
           {/* Plugin Guides Tab */}
-          <TabsContent value="plugins" className="space-y-6">
-            <div className="text-center mb-6">
-              <p className="text-muted-foreground">
-                Comprehensive guides and manuals for essential WordPress plugins
-              </p>
-            </div>
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {materials.plugins.map((plugin) => (
-                <Card key={plugin.id} className="hover:shadow-lg transition-all duration-300">
-                  <CardHeader>
-                    <div className="flex items-start justify-between mb-2">
-                      <div className="flex flex-col gap-1">
-                        <Badge variant="secondary">{plugin.category}</Badge>
-                        <Badge variant="outline" className="text-xs">
-                          {plugin.type}
-                        </Badge>
-                      </div>
-                      <FileText className="w-6 h-6 text-primary" />
+          <ContainerScrollAnimation direction="up" speed="normal">
+            <TabsContent value="plugins" className="space-y-6">
+              <div className="container mx-auto px-6 max-w-7xl">
+                <div className="text-center mb-12">
+                  <div className="inline-flex items-center gap-2.5 bg-primary/[0.03] border border-primary/10 rounded-full px-5 py-2 mb-8">
+                    <Package className="w-3.5 h-3.5 text-primary" />
+                    <span className="text-xs font-medium text-foreground tracking-wide">Plugin Guides</span>
+                  </div>
+                  <TextGenerateEffect 
+                    words="Essential Plugin Documentation" 
+                    className="text-3xl md:text-5xl font-bold text-foreground mb-8 tracking-tight leading-[0.95]"
+                    duration={1.5}
+                  />
+                  <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed font-light">
+                    Comprehensive guides and manuals for essential WordPress plugins
+                  </p>
+                </div>
+                
+                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                  {materials.plugins.map((plugin, index) => (
+                    <div 
+                      key={plugin.id}
+                      className="animate-elegant-entrance"
+                      style={{ 
+                        animationDelay: `${index * 100}ms`,
+                        animationFillMode: 'both'
+                      }}
+                    >
+                      <WobbleCard className="border border-border/30 rounded-3xl hover:border-primary/20 hover:shadow-xl hover:shadow-primary/5 transition-all duration-700 group hover:-translate-y-2 bg-card/30 backdrop-blur-sm overflow-hidden h-full">
+                        <CardHeader className="p-8">
+                          <div className="flex items-start justify-between mb-4">
+                            <div className="flex flex-col gap-2">
+                              <Badge variant="secondary" className="rounded-full px-3 py-1 text-xs font-medium">{plugin.category}</Badge>
+                              <Badge variant="outline" className="text-xs rounded-full border-border/40">
+                                {plugin.type}
+                              </Badge>
+                            </div>
+                            <FileText className="w-6 h-6 text-primary group-hover:scale-110 transition-transform duration-300" />
+                          </div>
+                          <CardTitle className="text-lg leading-tight mb-3 group-hover:text-primary transition-colors duration-300">{plugin.title}</CardTitle>
+                          <CardDescription className="text-sm text-muted-foreground leading-relaxed">
+                            {plugin.description}
+                          </CardDescription>
+                        </CardHeader>
+                        <CardContent className="p-8 pt-0">
+                          <div className="space-y-4">
+                            <div className="flex items-center justify-between text-sm text-muted-foreground">
+                              <span>{plugin.pages} pages</span>
+                              <span>{plugin.size}</span>
+                            </div>
+                            <div className="text-xs text-muted-foreground">
+                              Updated: {plugin.lastUpdated}
+                            </div>
+                            <Separator className="bg-border/30" />
+                            <Button size="sm" className="w-full rounded-full bg-primary hover:bg-primary/90 transition-all duration-300 group-hover:scale-105" asChild>
+                              <a href={plugin.downloadUrl} download>
+                                <Download className="w-4 h-4 mr-2" />
+                                Download PDF
+                              </a>
+                            </Button>
+                          </div>
+                        </CardContent>
+                      </WobbleCard>
                     </div>
-                    <CardTitle className="text-lg leading-tight">{plugin.title}</CardTitle>
-                    <CardDescription className="text-sm mt-2">
-                      {plugin.description}
-                    </CardDescription>
-                  </CardHeader>
-                  <CardContent>
-                    <div className="space-y-3">
-                      <div className="flex items-center justify-between text-sm text-muted-foreground">
-                        <span>{plugin.pages} pages</span>
-                        <span>{plugin.size}</span>
-                      </div>
-                      <div className="text-xs text-muted-foreground">
-                        Updated: {plugin.lastUpdated}
-                      </div>
-                      <Separator />
-                      <Button size="sm" className="w-full" asChild>
-                        <a href={plugin.downloadUrl} download>
-                          <Download className="w-4 h-4 mr-2" />
-                          Download PDF
-                        </a>
-                      </Button>
-                    </div>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-          </TabsContent>
+                  ))}
+                </div>
+              </div>
+            </TabsContent>
+          </ContainerScrollAnimation>
           
           {/* Project Assets Tab */}
-          <TabsContent value="assets" className="space-y-6">
-            <div className="text-center mb-6">
-              <p className="text-muted-foreground">
-                Design assets, images, icons, and content templates for your projects
-              </p>
-            </div>
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {materials.assets.map((asset) => (
-                <Card key={asset.id} className="hover:shadow-lg transition-all duration-300">
-                  <CardHeader>
-                    <div className="flex items-start justify-between mb-2">
-                      <div className="flex flex-col gap-1">
-                        <Badge>{asset.type}</Badge>
-                        <Badge variant="secondary" className="text-xs">
-                          {asset.category}
-                        </Badge>
-                      </div>
-                      <FolderOpen className="w-6 h-6 text-primary" />
+          <ContainerScrollAnimation direction="up" speed="normal">
+            <TabsContent value="assets" className="space-y-6">
+              <div className="container mx-auto px-6 max-w-7xl">
+                <div className="text-center mb-12">
+                  <div className="inline-flex items-center gap-2.5 bg-primary/[0.03] border border-primary/10 rounded-full px-5 py-2 mb-8">
+                    <FolderOpen className="w-3.5 h-3.5 text-primary" />
+                    <span className="text-xs font-medium text-foreground tracking-wide">Project Assets</span>
+                  </div>
+                  <TextGenerateEffect 
+                    words="Design Assets & Resources" 
+                    className="text-3xl md:text-5xl font-bold text-foreground mb-8 tracking-tight leading-[0.95]"
+                    duration={1.5}
+                  />
+                  <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed font-light">
+                    Design assets, images, icons, and content templates for your projects
+                  </p>
+                </div>
+                
+                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                  {materials.assets.map((asset, index) => (
+                    <div 
+                      key={asset.id}
+                      className="animate-elegant-entrance"
+                      style={{ 
+                        animationDelay: `${index * 120}ms`,
+                        animationFillMode: 'both'
+                      }}
+                    >
+                      <WobbleCard className="border border-border/30 rounded-3xl hover:border-primary/20 hover:shadow-xl hover:shadow-primary/5 transition-all duration-700 group hover:-translate-y-2 bg-card/30 backdrop-blur-sm overflow-hidden h-full">
+                        <CardHeader className="p-8">
+                          <div className="flex items-start justify-between mb-4">
+                            <div className="flex flex-col gap-2">
+                              <Badge className="rounded-full px-3 py-1 text-xs font-medium">{asset.type}</Badge>
+                              <Badge variant="secondary" className="text-xs rounded-full border-border/40">
+                                {asset.category}
+                              </Badge>
+                            </div>
+                            <FolderOpen className="w-6 h-6 text-primary group-hover:scale-110 transition-transform duration-300" />
+                          </div>
+                          <CardTitle className="text-lg leading-tight mb-3 group-hover:text-primary transition-colors duration-300">{asset.title}</CardTitle>
+                          <CardDescription className="text-sm text-muted-foreground leading-relaxed">
+                            {asset.description}
+                          </CardDescription>
+                        </CardHeader>
+                        <CardContent className="p-8 pt-0">
+                          <div className="space-y-4">
+                            <div className="flex flex-wrap gap-2">
+                              {asset.formats.map((format, formatIndex) => (
+                                <Badge key={formatIndex} variant="outline" className="text-xs rounded-full border-border/40 hover:border-primary/50 transition-colors">
+                                  {format}
+                                </Badge>
+                              ))}
+                            </div>
+                            <div className="flex items-center justify-between text-sm text-muted-foreground">
+                              <span>{asset.fileCount} files</span>
+                              <span>{asset.size}</span>
+                            </div>
+                            <Separator className="bg-border/30" />
+                            <Button size="sm" className="w-full rounded-full bg-primary hover:bg-primary/90 transition-all duration-300 group-hover:scale-105" asChild>
+                              <a href={asset.downloadUrl} download>
+                                <Download className="w-4 h-4 mr-2" />
+                                Download Pack
+                              </a>
+                            </Button>
+                          </div>
+                        </CardContent>
+                      </WobbleCard>
                     </div>
-                    <CardTitle className="text-lg leading-tight">{asset.title}</CardTitle>
-                    <CardDescription className="text-sm mt-2">
-                      {asset.description}
-                    </CardDescription>
-                  </CardHeader>
-                  <CardContent>
-                    <div className="space-y-3">
-                      <div className="flex flex-wrap gap-1">
-                        {asset.formats.map((format, index) => (
-                          <Badge key={index} variant="outline" className="text-xs">
-                            {format}
-                          </Badge>
-                        ))}
-                      </div>
-                      <div className="flex items-center justify-between text-sm text-muted-foreground">
-                        <span>{asset.fileCount} files</span>
-                        <span>{asset.size}</span>
-                      </div>
-                      <Separator />
-                      <Button size="sm" className="w-full" asChild>
-                        <a href={asset.downloadUrl} download>
-                        <Download className="w-4 h-4 mr-2" />
-                          Download Pack
-                        </a>
-                      </Button>
-                    </div>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-          </TabsContent>
+                  ))}
+                </div>
+              </div>
+            </TabsContent>
+          </ContainerScrollAnimation>
           
           {/* Code Snippets Tab */}
-          <TabsContent value="snippets" className="space-y-6">
-            <div className="text-center mb-6">
-              <p className="text-muted-foreground">
-                Ready-to-use PHP and CSS code snippets for WordPress customization
-              </p>
-            </div>
-            <div className="grid gap-6">
-              {materials.snippets.map((snippet) => (
-                <Card key={snippet.id} className="hover:shadow-lg transition-all duration-300">
-                  <CardHeader>
-                    <div className="flex items-start justify-between">
-                      <div className="flex-1">
-                        <div className="flex items-center gap-2 mb-2">
-                          <Badge variant="secondary">{snippet.category}</Badge>
-                          <Badge variant="outline">{snippet.language}</Badge>
-                        </div>
-                        <CardTitle className="text-xl mb-2">{snippet.title}</CardTitle>
-                        <CardDescription>{snippet.description}</CardDescription>
-                      </div>
-                      <Code className="w-6 h-6 text-primary flex-shrink-0 ml-4" />
+          <ContainerScrollAnimation direction="up" speed="normal">
+            <TabsContent value="snippets" className="space-y-6">
+              <div className="container mx-auto px-6 max-w-7xl">
+                <div className="text-center mb-12">
+                  <div className="inline-flex items-center gap-2.5 bg-primary/[0.03] border border-primary/10 rounded-full px-5 py-2 mb-8">
+                    <Code className="w-3.5 h-3.5 text-primary" />
+                    <span className="text-xs font-medium text-foreground tracking-wide">Code Snippets</span>
+                  </div>
+                  <TextGenerateEffect 
+                    words="Ready-to-Use Code" 
+                    className="text-3xl md:text-5xl font-bold text-foreground mb-8 tracking-tight leading-[0.95]"
+                    duration={1.5}
+                  />
+                  <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed font-light">
+                    Ready-to-use PHP and CSS code snippets for WordPress customization
+                  </p>
+                </div>
+                
+                <div className="grid gap-8">
+                  {materials.snippets.map((snippet, index) => (
+                    <div 
+                      key={snippet.id}
+                      className="animate-elegant-entrance"
+                      style={{ 
+                        animationDelay: `${index * 150}ms`,
+                        animationFillMode: 'both'
+                      }}
+                    >
+                      <WobbleCard className="border border-border/30 rounded-3xl hover:border-primary/20 hover:shadow-xl hover:shadow-primary/5 transition-all duration-700 group hover:-translate-y-2 bg-card/30 backdrop-blur-sm overflow-hidden">
+                        <CardHeader className="p-8">
+                          <div className="flex items-start justify-between">
+                            <div className="flex-1">
+                              <div className="flex items-center gap-3 mb-4">
+                                <Badge variant="secondary" className="rounded-full px-3 py-1 text-xs font-medium">{snippet.category}</Badge>
+                                <Badge variant="outline" className="rounded-full border-border/40 text-xs">{snippet.language}</Badge>
+                              </div>
+                              <CardTitle className="text-xl mb-3 group-hover:text-primary transition-colors duration-300">{snippet.title}</CardTitle>
+                              <CardDescription className="text-muted-foreground leading-relaxed">{snippet.description}</CardDescription>
+                            </div>
+                            <Code className="w-6 h-6 text-primary flex-shrink-0 ml-4 group-hover:scale-110 transition-transform duration-300" />
+                          </div>
+                        </CardHeader>
+                        <CardContent className="p-8 pt-0">
+                          <div className="space-y-6">
+                            <div className="bg-muted/50 backdrop-blur-sm rounded-2xl p-6 overflow-x-auto border border-border/30">
+                              <pre className="text-sm font-mono text-foreground">
+                                <code className="language-php">{snippet.code}</code>
+                              </pre>
+                            </div>
+                            <div className="flex gap-3">
+                              <Button 
+                                size="sm" 
+                                variant="outline"
+                                onClick={() => {
+                                  navigator.clipboard.writeText(snippet.code);
+                                }}
+                                className="flex-1 rounded-full border-border/40 hover:border-primary/50 hover:bg-primary/5 hover:text-primary transition-all duration-300"
+                              >
+                                Copy Code
+                              </Button>
+                              <Button size="sm" variant="outline" className="rounded-full border-border/40 hover:border-primary/50 hover:bg-primary/5 hover:text-primary transition-all duration-300">
+                                <Download className="w-4 h-4 mr-2" />
+                                Download
+                              </Button>
+                            </div>
+                          </div>
+                        </CardContent>
+                      </WobbleCard>
                     </div>
-                  </CardHeader>
-                  <CardContent>
-                    <div className="space-y-4">
-                      <div className="bg-muted rounded-lg p-4 overflow-x-auto">
-                        <pre className="text-sm">
-                          <code className="language-php">{snippet.code}</code>
-                        </pre>
-                      </div>
-                    <div className="flex gap-2">
-                        <Button 
-                          size="sm" 
-                          variant="outline"
-                          onClick={() => {
-                            navigator.clipboard.writeText(snippet.code);
-                          }}
-                          className="flex-1"
-                        >
-                          Copy Code
-                      </Button>
-                      <Button size="sm" variant="outline">
-                          <Download className="w-4 h-4 mr-2" />
-                          Download
-                      </Button>
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-          </TabsContent>
+                  ))}
+                </div>
+              </div>
+            </TabsContent>
+          </ContainerScrollAnimation>
         </Tabs>
         
-        {/* Additional Resources Section */}
-        <div className="mt-16 bg-gradient-to-br from-primary/10 via-primary/5 to-background rounded-xl p-8 md:p-12 text-center border">
-          <h2 className="text-3xl font-bold text-foreground mb-4">
-            Need Specific Resources?
-          </h2>
-          <p className="text-muted-foreground mb-6 max-w-2xl mx-auto">
-            Can't find what you're looking for? We regularly update our materials library 
-            with new content based on student requests. Let us know what resources would help you most.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-          <Button size="lg" asChild>
-            <a href="/contact">Request Materials</a>
-          </Button>
-            <Button size="lg" variant="outline" asChild>
-              <a href="/faq">View FAQ</a>
-            </Button>
-          </div>
-        </div>
+        {/* Additional Resources Section - Enhanced */}
+        <ContainerScrollAnimation direction="up" speed="slow">
+          <section className="pt-4 sm:pt-16 bg-background relative overflow-hidden">
+            {/* Minimal ambient lighting */}
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-primary/[0.015] rounded-full blur-3xl pointer-events-none"></div>
+            
+            <div className="container mx-auto px-6 max-w-6xl relative">
+              <WobbleCard className="border border-border/30 rounded-3xl overflow-hidden bg-gradient-to-br from-primary/10 via-primary/5 to-background shadow-xl hover:shadow-2xl transition-all duration-700">
+                <div className="p-8 sm:p-12 md:p-16 text-center">
+                  <div className="inline-flex items-center gap-3 bg-primary/8 border border-primary/15 rounded-full px-6 py-3 mb-8">
+                    <Award className="w-4 h-4 text-primary" />
+                    <span className="text-sm font-medium text-primary tracking-wide">Need More Resources?</span>
+                  </div>
+                  
+                  <TextGenerateEffect 
+                    words="Can't Find What You Need?" 
+                    className="text-3xl md:text-5xl font-bold text-foreground mb-8 tracking-tight leading-[0.95]"
+                    duration={1.5}
+                  />
+                  
+                  <p className="text-xl text-muted-foreground mb-12 max-w-3xl mx-auto leading-relaxed font-light">
+                    We regularly update our materials library with new content based on student requests. 
+                    Let us know what resources would help you most.
+                  </p>
+                  
+                  <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                    <Button size="lg" className="rounded-full px-8 h-14 text-base font-semibold bg-primary hover:bg-primary/90 transition-all duration-300 group shadow-lg hover:shadow-xl" asChild>
+                      <a href="/contact">
+                        <Sparkles className="w-5 h-5 mr-2 group-hover:rotate-12 transition-transform duration-300" />
+                        Request Materials
+                        <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
+                      </a>
+                    </Button>
+                    <Button size="lg" variant="outline" className="rounded-full px-8 h-14 text-base font-semibold border-border/40 hover:border-primary/50 hover:bg-primary/5 hover:text-primary transition-all duration-300 group" asChild>
+                      <a href="/faq">
+                        <BookOpen className="w-5 h-5 mr-2 group-hover:text-primary" />
+                        View FAQ
+                        <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
+                      </a>
+                    </Button>
+                  </div>
+                </div>
+              </WobbleCard>
+            </div>
+          </section>
+        </ContainerScrollAnimation>
         
-        {/* Quick Stats */}
-        <div className="mt-12 grid grid-cols-2 md:grid-cols-5 gap-4 text-center">
-          <div className="p-4 rounded-lg bg-muted/50">
-            <div className="text-2xl font-bold text-primary">{materials.videos.length}</div>
-            <div className="text-sm text-muted-foreground">Video Tutorials</div>
-          </div>
-          <div className="p-4 rounded-lg bg-muted/50">
-            <div className="text-2xl font-bold text-primary">{materials.themes.length}</div>
-            <div className="text-sm text-muted-foreground">Themes & Templates</div>
-          </div>
-          <div className="p-4 rounded-lg bg-muted/50">
-            <div className="text-2xl font-bold text-primary">{materials.plugins.length}</div>
-            <div className="text-sm text-muted-foreground">Plugin Guides</div>
-          </div>
-          <div className="p-4 rounded-lg bg-muted/50">
-            <div className="text-2xl font-bold text-primary">{materials.assets.length}</div>
-            <div className="text-sm text-muted-foreground">Asset Packs</div>
-          </div>
-          <div className="p-4 rounded-lg bg-muted/50">
-            <div className="text-2xl font-bold text-primary">{materials.snippets.length}</div>
-            <div className="text-sm text-muted-foreground">Code Snippets</div>
-          </div>
-        </div>
+        {/* Enhanced Quick Stats */}
+        <ContainerScrollAnimation direction="up" speed="normal">
+          <section className="pt-4 sm:pt-16 bg-background relative overflow-hidden">
+            <div className="container mx-auto px-6 max-w-7xl relative">
+              <div className="grid grid-cols-2 md:grid-cols-5 gap-6 text-center">
+                <div 
+                  className="animate-elegant-entrance p-6 rounded-2xl bg-card/30 backdrop-blur-sm border border-border/30 hover:border-primary/20 transition-all duration-300 hover:shadow-lg hover:shadow-primary/5"
+                  style={{ animationDelay: '0ms', animationFillMode: 'both' }}
+                >
+                  <div className="text-3xl md:text-4xl font-bold text-primary mb-2">{materials.videos.length}</div>
+                  <div className="text-sm text-muted-foreground font-medium">Video Tutorials</div>
+                </div>
+                <div 
+                  className="animate-elegant-entrance p-6 rounded-2xl bg-card/30 backdrop-blur-sm border border-border/30 hover:border-primary/20 transition-all duration-300 hover:shadow-lg hover:shadow-primary/5"
+                  style={{ animationDelay: '100ms', animationFillMode: 'both' }}
+                >
+                  <div className="text-3xl md:text-4xl font-bold text-primary mb-2">{materials.themes.length}</div>
+                  <div className="text-sm text-muted-foreground font-medium">Themes & Templates</div>
+                </div>
+                <div 
+                  className="animate-elegant-entrance p-6 rounded-2xl bg-card/30 backdrop-blur-sm border border-border/30 hover:border-primary/20 transition-all duration-300 hover:shadow-lg hover:shadow-primary/5"
+                  style={{ animationDelay: '200ms', animationFillMode: 'both' }}
+                >
+                  <div className="text-3xl md:text-4xl font-bold text-primary mb-2">{materials.plugins.length}</div>
+                  <div className="text-sm text-muted-foreground font-medium">Plugin Guides</div>
+                </div>
+                <div 
+                  className="animate-elegant-entrance p-6 rounded-2xl bg-card/30 backdrop-blur-sm border border-border/30 hover:border-primary/20 transition-all duration-300 hover:shadow-lg hover:shadow-primary/5"
+                  style={{ animationDelay: '300ms', animationFillMode: 'both' }}
+                >
+                  <div className="text-3xl md:text-4xl font-bold text-primary mb-2">{materials.assets.length}</div>
+                  <div className="text-sm text-muted-foreground font-medium">Asset Packs</div>
+                </div>
+                <div 
+                  className="animate-elegant-entrance p-6 rounded-2xl bg-card/30 backdrop-blur-sm border border-border/30 hover:border-primary/20 transition-all duration-300 hover:shadow-lg hover:shadow-primary/5"
+                  style={{ animationDelay: '400ms', animationFillMode: 'both' }}
+                >
+                  <div className="text-3xl md:text-4xl font-bold text-primary mb-2">{materials.snippets.length}</div>
+                  <div className="text-sm text-muted-foreground font-medium">Code Snippets</div>
+                </div>
+              </div>
+            </div>
+          </section>
+        </ContainerScrollAnimation>
       </div>
-    </div>
+    </FollowingPointer>
   );
 };
 
