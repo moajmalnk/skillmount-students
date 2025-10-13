@@ -535,27 +535,29 @@ add_action('init', 'create_portfolio_post_type');`
           </div>
         </section>
         
-        {/* Materials Navigation - Enhanced */}
-        <ContainerScrollAnimation direction="up" speed="normal">
-          <section className="pt-4 sm:pt-16 bg-background relative overflow-hidden">
-            {/* Minimal ambient lighting */}
-            <div className="absolute top-1/4 right-1/4 w-[300px] h-[300px] bg-primary/[0.02] rounded-full blur-3xl pointer-events-none"></div>
-            <div className="absolute bottom-1/4 left-1/4 w-[400px] h-[400px] bg-accent/[0.02] rounded-full blur-3xl pointer-events-none"></div>
-            
-            <div className="container mx-auto px-6 max-w-7xl relative">
-              <div className="text-center mb-12">
-                <div className="inline-flex items-center gap-2.5 bg-primary/[0.03] border border-primary/10 rounded-full px-5 py-2 mb-8">
-                  <BookOpen className="w-3.5 h-3.5 text-primary" />
-                  <span className="text-xs font-medium text-foreground tracking-wide">Browse Materials</span>
-                </div>
-                <TextGenerateEffect 
-                  words="Choose Your Learning Path" 
-                  className="text-3xl md:text-5xl font-bold text-foreground mb-8 tracking-tight leading-[0.95]"
-                  duration={1.5}
-                />
-              </div>
+        {/* Tutorial Videos Tab */}
+        <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
+          {/* Materials Navigation - Enhanced */}
+          <ContainerScrollAnimation direction="up" speed="normal">
+            <section className="pt-4 sm:pt-16 bg-background relative overflow-hidden">
+              {/* Minimal ambient lighting */}
+              <div className="absolute top-1/4 right-1/4 w-[300px] h-[300px] bg-primary/[0.02] rounded-full blur-3xl pointer-events-none"></div>
+              <div className="absolute bottom-1/4 left-1/4 w-[400px] h-[400px] bg-accent/[0.02] rounded-full blur-3xl pointer-events-none"></div>
               
-              {/* Enhanced Tabs */}
+              <div className="container mx-auto px-6 max-w-7xl relative">
+                <div className="text-center mb-12">
+                  <div className="inline-flex items-center gap-2.5 bg-primary/[0.03] border border-primary/10 rounded-full px-5 py-2 mb-8">
+                    <BookOpen className="w-3.5 h-3.5 text-primary" />
+                    <span className="text-xs font-medium text-foreground tracking-wide">Browse Materials</span>
+                  </div>
+                  <TextGenerateEffect 
+                    words="Choose Your Learning Path" 
+                    className="text-3xl md:text-5xl font-bold text-foreground mb-8 tracking-tight leading-[0.95]"
+                    duration={1.5}
+                  />
+                </div>
+                
+                {/* Enhanced Tabs */}
                 <div className="flex justify-center mb-12">
                   <WobbleCard className="border border-border/30 rounded-3xl overflow-hidden bg-card/30 backdrop-blur-sm shadow-xl hover:shadow-2xl transition-all duration-700">
                     <TabsList className="grid grid-cols-5 h-auto bg-transparent p-2 gap-2">
@@ -597,12 +599,9 @@ add_action('init', 'create_portfolio_post_type');`
                     </TabsList>
                   </WobbleCard>
                 </div>
-            </div>
-          </section>
-        </ContainerScrollAnimation>
-          
-        {/* Tutorial Videos Tab */}
-        <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
+              </div>
+            </section>
+          </ContainerScrollAnimation>
           <ContainerScrollAnimation direction="up" speed="normal">
             <TabsContent value="videos" className="space-y-6">
               <div className="container mx-auto px-6 max-w-7xl">
