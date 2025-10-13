@@ -106,10 +106,17 @@ All colors MUST be HSL.
   body {
     @apply bg-background text-foreground antialiased;
     font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+    position: relative;
   }
   
   html {
     scroll-behavior: smooth;
+    position: relative;
+  }
+
+  /* Ensure framer-motion containers have proper positioning */
+  [data-framer-motion] {
+    position: relative;
   }
 }
 
@@ -601,6 +608,116 @@ All colors MUST be HSL.
 
   .animate-professional-loading {
     animation: professional-loading 1.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  /* SkelUI Specific Animations */
+  .skelui-wobble {
+    animation: wobble 1s ease-in-out;
+  }
+
+  .skelui-float {
+    animation: float 3s ease-in-out infinite;
+  }
+
+  .skelui-glow {
+    animation: glow 2s ease-in-out infinite;
+  }
+
+  /* 3D Transform Utilities */
+  .perspective-1000 {
+    perspective: 1000px;
+  }
+
+  .perspective-1500 {
+    perspective: 1500px;
+  }
+
+  .perspective-2000 {
+    perspective: 2000px;
+  }
+
+  /* Custom Cursor Styles */
+  .cursor-custom {
+    cursor: none;
+  }
+
+  /* Background Beam Effects */
+  .beam-gradient {
+    background: radial-gradient(circle at 20% 50%, rgba(139, 92, 246, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(236, 72, 153, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 40% 80%, rgba(59, 130, 246, 0.3) 0%, transparent 50%);
+  }
+
+  /* Text Generation Effect */
+  .text-generate-cursor {
+    animation: blink 1s infinite;
+  }
+
+  @keyframes blink {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0; }
+  }
+
+  /* Glassmorphism Enhancements */
+  .glass-card-enhanced {
+    background: rgba(255, 255, 255, 0.02);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  }
+
+  /* Dark Mode Specific Enhancements */
+  .dark .glass-card-enhanced {
+    background: rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  }
+
+  /* Following Pointer Effect */
+  .pointer-follow {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 20px;
+    height: 20px;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9999;
+    mix-blend-mode: difference;
+    transition: transform 0.1s ease-out;
+  }
+
+  /* Container Scroll Animation */
+  .scroll-container {
+    overflow: hidden;
+  }
+
+  /* Wobble Card Specific */
+  .wobble-card-container {
+    transform-style: preserve-3d;
+    transition: transform 0.1s ease-out;
+  }
+
+  /* Kinetic Typography */
+  .kinetic-text {
+    background: linear-gradient(45deg, #667eea 0%, #764ba2 100%);
+    background-size: 200% 200%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: gradient-shift 3s ease infinite;
+  }
+
+  /* Modern Gradient Text */
+  .gradient-text-modern {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+    background-size: 200% 200%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: gradient-shift 4s ease infinite;
   }
 }
 

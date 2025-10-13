@@ -14,6 +14,7 @@ import FAQ from "./pages/FAQ";
 import Materials from "./pages/Materials";
 import Contact from "./pages/Contact";
 import Admin from "./pages/Admin";
+import SkelUI from "./pages/SkelUI";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -31,9 +32,9 @@ const App = () => (
           }}
         >
           <ScrollProgressBar />
-          <div className="flex flex-col min-h-screen">
+          <div className="flex flex-col min-h-screen relative">
             <Navbar />
-            <main className="flex-1">
+            <main className="flex-1 relative">
               <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/students" element={<Students />} />
@@ -42,6 +43,7 @@ const App = () => (
                 <Route path="/materials" element={<Materials />} />
                 <Route path="/contact" element={<Contact />} />
                 <Route path="/admin" element={<Admin />} />
+                <Route path="/skelui" element={<SkelUI />} />
                 {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
                 <Route path="*" element={<NotFound />} />
               </Routes>

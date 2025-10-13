@@ -3,7 +3,19 @@ import react from "@vitejs/plugin-react-swc"
 import { defineConfig } from "vite"
 
 export default defineConfig({
-  plugins: [react()],
+  plugins: [
+    react(),
+    // Custom plugin to handle main.jsx redirect
+    {
+      name: 'redirect-main-jsx',
+      configureServer(server) {
+        server.middlewares.use('/src/main.jsx', (req, res, next) => {
+          res.writeHead(302, { Location: '/src/main.tsx' });
+          res.end();
+        });
+      }
+    }
+  ],
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
@@ -40,5 +52,10 @@ export default defineConfig({
     hmr: {
       overlay: false,
     },
+    headers: {
+      'Cache-Control': 'no-cache, no-store, must-revalidate',
+    },
+    // Handle redirects for common file name issues
+    middlewareMode: false,
   },
 })

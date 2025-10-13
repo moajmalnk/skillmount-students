@@ -80,12 +80,36 @@ export default {
           from: { opacity: "0", transform: "scale(0.95)" },
           to: { opacity: "1", transform: "scale(1)" },
         },
+        "wobble": {
+          "0%, 100%": { transform: "translateX(0%)" },
+          "15%": { transform: "translateX(-25%) rotate(-5deg)" },
+          "30%": { transform: "translateX(20%) rotate(3deg)" },
+          "45%": { transform: "translateX(-15%) rotate(-3deg)" },
+          "60%": { transform: "translateX(10%) rotate(2deg)" },
+          "75%": { transform: "translateX(-5%) rotate(-1deg)" },
+        },
+        "float": {
+          "0%, 100%": { transform: "translateY(0px)" },
+          "50%": { transform: "translateY(-20px)" },
+        },
+        "glow": {
+          "0%, 100%": { boxShadow: "0 0 20px rgba(139, 92, 246, 0.3)" },
+          "50%": { boxShadow: "0 0 40px rgba(139, 92, 246, 0.6)" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
         "fade-in": "fade-in 0.4s ease-out",
         "scale-in": "scale-in 0.3s ease-out",
+        "wobble": "wobble 1s ease-in-out",
+        "float": "float 3s ease-in-out infinite",
+        "glow": "glow 2s ease-in-out infinite",
+      },
+      perspective: {
+        "1000": "1000px",
+        "1500": "1500px",
+        "2000": "2000px",
       },
       boxShadow: {
         'card': 'var(--card-shadow)',
