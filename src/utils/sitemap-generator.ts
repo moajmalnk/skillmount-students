@@ -66,7 +66,7 @@ export const defaultSitemapUrls: SitemapUrl[] = [
  * Generate robots.txt content
  */
 export const generateRobotsTxt = (sitemapUrl: string = 'https://students.moajmalnk.in/sitemap.xml'): string => {
-  return `# Robots.txt for Skill Mount Students
+  return `# Robots.txt for SkillMount Students
 User-agent: *
 Allow: /
 Disallow: /admin

@@ -16,8 +16,8 @@ interface SEOProps {
 
 const SEO = ({
   title = "Mohammed Ajmal NK - WordPress & No-Code Training Success Stories",
-  description = "Explore success stories of 1000+ students trained in WordPress, Elementor, WooCommerce, and No-Code platforms by Mohammed Ajmal NK at Skill Mount.",
-  keywords = "WordPress training, No-Code development, CMS training, Elementor, WooCommerce, student portfolios, Skill Mount, Mohammed Ajmal NK, web development courses, online training",
+  description = "Explore success stories of 1000+ students trained in WordPress, Elementor, WooCommerce, and No-Code platforms by Mohammed Ajmal NK at SkillMount.",
+  keywords = "WordPress training, No-Code development, CMS training, Elementor, WooCommerce, student portfolios, SkillMount, Mohammed Ajmal NK, web development courses, online training",
   image = "https://moajmalnk.in/assets/img/logo/logo-lightaj.png",
   url = "https://moajmalnk.in",
   type = "website",
@@ -27,7 +27,7 @@ const SEO = ({
   structuredData,
   noindex = false
 }: SEOProps) => {
-  const siteTitle = "Skill Mount Students";
+  const siteTitle = "SkillMount Students";
   const fullTitle = title.includes(siteTitle) ? title : `${title} | ${siteTitle}`;
 
   return (

@@ -258,18 +258,18 @@ const Footer = () => {
 
           {/* Navigation Grid - Card Style */}
           <div className="xl:col-span-7 lg:col-span-6">
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-6 lg:gap-8">
-              {/* Learn Section - 3 columns */}
-              <div className="lg:col-span-3 space-y-4">
+            <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-12 gap-4 sm:gap-6 lg:gap-8">
+              {/* Learn Section - Responsive columns */}
+              <div className="col-span-1 lg:col-span-3 space-y-4">
                 <h3 className="text-sm font-semibold text-gray-900 dark:text-gray-100 uppercase tracking-wider">
                   Learn
                 </h3>
-                <ul className="space-y-3">
+                <ul className="space-y-2 sm:space-y-3">
                   {navigation.learn.map((item) => (
                     <li key={item.name}>
                       <Link
                         to={item.href}
-                        className="group/link inline-flex items-center text-sm text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-primary transition-colors duration-200"
+                        className="group/link inline-flex items-center text-xs sm:text-sm text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-primary transition-colors duration-200"
                       >
                         <span className="group-hover/link:translate-x-1 transition-transform duration-200">
                           {item.name}
@@ -280,17 +280,17 @@ const Footer = () => {
                 </ul>
               </div>
 
-              {/* Resources Section - 3 columns */}
-              <div className="lg:col-span-3 space-y-4">
+              {/* Resources Section - Responsive columns */}
+              <div className="col-span-1 lg:col-span-3 space-y-4">
                 <h3 className="text-sm font-semibold text-gray-900 dark:text-gray-100 uppercase tracking-wider">
                   Resources
                 </h3>
-                <ul className="space-y-3">
+                <ul className="space-y-2 sm:space-y-3">
                   {navigation.resources.map((item) => (
                     <li key={item.name}>
                       <a
                         href={item.href}
-                        className="group/link inline-flex items-center text-sm text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-primary transition-colors duration-200"
+                        className="group/link inline-flex items-center text-xs sm:text-sm text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-primary transition-colors duration-200"
                       >
                         <span className="group-hover/link:translate-x-1 transition-transform duration-200">
                           {item.name}
@@ -301,28 +301,28 @@ const Footer = () => {
                 </ul>
               </div>
 
-              {/* Newsletter Card - 6 columns */}
-              <div className="lg:col-span-6 space-y-4">
+              {/* Newsletter Card - Responsive columns */}
+              <div className="col-span-2 lg:col-span-6 space-y-4">
                 <h3 className="text-sm font-semibold text-gray-900 dark:text-gray-100 uppercase tracking-wider">
                   Newsletter
                 </h3>
-                <div className="p-6 rounded-xl bg-gradient-to-br from-primary/5 to-purple-500/5 border border-primary/10">
-                  <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-                    <div>
-                      <h4 className="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-1">
+                <div className="p-4 sm:p-6 rounded-xl bg-gradient-to-br from-primary/5 to-purple-500/5 border border-primary/10">
+                  <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 sm:gap-4">
+                    <div className="flex-1">
+                      <h4 className="text-base sm:text-lg font-semibold text-gray-900 dark:text-gray-100 mb-1">
                         Stay Updated
                       </h4>
-                      <p className="text-sm text-gray-600 dark:text-gray-400">
+                      <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-400">
                         Get the latest updates on new courses and features.
                       </p>
                     </div>
                     <button
                       onClick={openModal}
-                      className="group inline-flex items-center gap-2 px-6 py-2.5 bg-primary text-white rounded-lg hover:bg-primary/90 transition-all duration-300 hover:shadow-lg hover:shadow-primary/25 text-sm font-medium"
+                      className="group inline-flex items-center gap-2 px-4 sm:px-6 py-2 sm:py-2.5 bg-primary text-white rounded-lg hover:bg-primary/90 transition-all duration-300 hover:shadow-lg hover:shadow-primary/25 text-xs sm:text-sm font-medium flex-shrink-0"
                       aria-label="Subscribe to newsletter"
                     >
                       <span>Subscribe</span>
-                      <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                      <ArrowUpRight className="w-3 h-3 sm:w-4 sm:h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                     </button>
                   </div>
                 </div>

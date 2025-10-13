@@ -195,7 +195,7 @@ const Home = () => {
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "EducationalOrganization",
-    "name": "Skill Mount",
+    "name": "SkillMount",
     "description": "Professional WordPress and No-Code training institute led by Mohammed Ajmal NK",
     "url": "https://students.moajmalnk.in",
     "logo": "https://moajmalnk.in/assets/img/logo/logo-lightaj.png",
@@ -231,9 +231,9 @@ const Home = () => {
     <FollowingPointer>
       {/* Advanced SEO Meta Tags */}
       <SEO
-        title="Skill Mount Students - WordPress & No-Code Training Success Stories"
-        description="Explore success stories of 1000+ students trained in WordPress, Elementor, WooCommerce, and No-Code platforms by Mohammed Ajmal NK at Skill Mount. 95% placement success rate."
-        keywords="WordPress training, No-Code development, CMS training, Elementor, WooCommerce, student portfolios, Skill Mount, Mohammed Ajmal NK, web development bootcamp, online courses, digital skills training"
+        title="SkillMount Students - WordPress & No-Code Training Success Stories"
+        description="Explore success stories of 1000+ students trained in WordPress, Elementor, WooCommerce, and No-Code platforms by Mohammed Ajmal NK at SkillMount. 95% placement success rate."
+        keywords="WordPress training, No-Code development, CMS training, Elementor, WooCommerce, student portfolios, SkillMount, Mohammed Ajmal NK, web development bootcamp, online courses, digital skills training"
         url="https://moajmalnk.in"
         image="https://moajmalnk.in/assets/img/logo/logo-lightaj.png"
         author="Mohammed Ajmal NK"
@@ -273,7 +273,7 @@ const Home = () => {
                 {/* Left Column - Minimalist Content */}
                 <div className="space-y-6 sm:space-y-8 md:space-y-10">
                   {/* Ultra-minimal badge */}
-                  <div className="mt-10 inline-flex items-center gap-2.5 bg-primary/[0.03] border border-primary/10 rounded-full px-5 py-2">
+                  <div className="mt-10 flex items-center justify-center gap-2.5 bg-primary/[0.03] border border-primary/10 rounded-full px-5 py-2 w-fit mx-auto sm:mx-0">
                     <Sparkles className="w-3.5 h-3.5 text-primary" />
                     <span className="text-xs font-medium text-foreground tracking-wide">No-Code Excellence</span>
                   </div>
@@ -339,19 +339,21 @@ const Home = () => {
                   </div>
                   
                   {/* Minimalist CTA Buttons */}
-                  <div className="mb-8 sm:mb-12 md:mb-16 flex flex-col sm:flex-row gap-4">
+                  <div className="mb-8 sm:mb-12 md:mb-16 flex flex-row gap-2 sm:gap-4 justify-center">
                     <Link to="/contact">
-                      <Button size="lg" className="rounded-full px-10 h-14 text-base font-semibold bg-primary hover:bg-primary/90 transition-all duration-300 group shadow-lg hover:shadow-xl">
-                        <Mail className="w-4 h-4 mr-2" />
-                        Get Started
-                        <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
+                      <Button size="sm" className="rounded-full px-4 sm:px-10 h-10 sm:h-14 text-xs sm:text-base font-semibold bg-primary hover:bg-primary/90 transition-all duration-300 group shadow-lg hover:shadow-xl">
+                        <Mail className="w-3 h-3 sm:w-4 sm:h-4 mr-1 sm:mr-2" />
+                        <span className="hidden sm:inline">Get Started</span>
+                        <span className="sm:hidden">Start</span>
+                        <ArrowRight className="w-3 h-3 sm:w-4 sm:h-4 ml-1 sm:ml-2 group-hover:translate-x-1 transition-transform duration-300" />
                       </Button>
                     </Link>
                     <Link to="/students">
-                      <Button size="lg" variant="outline" className="rounded-full px-10 h-14 text-base font-semibold border-border/40 hover:border-primary/50 hover:bg-primary/5 hover:text-primary transition-all duration-300 group">
-                        <Users className="w-4 h-4 mr-2 group-hover:text-primary" />
-                        View Portfolios
-                        <ExternalLink className="w-4 h-4 ml-2 group-hover:scale-110 group-hover:text-primary transition-transform duration-300" />
+                      <Button size="sm" variant="outline" className="rounded-full px-4 sm:px-10 h-10 sm:h-14 text-xs sm:text-base font-semibold border-border/40 hover:border-primary/50 hover:bg-primary/5 hover:text-primary transition-all duration-300 group">
+                        <Users className="w-3 h-3 sm:w-4 sm:h-4 mr-1 sm:mr-2 group-hover:text-primary" />
+                        <span className="hidden sm:inline">View Portfolios</span>
+                        <span className="sm:hidden">View</span>
+                        <ExternalLink className="w-3 h-3 sm:w-4 sm:h-4 ml-1 sm:ml-2 group-hover:scale-110 group-hover:text-primary transition-transform duration-300" />
                       </Button>
                     </Link>
                   </div>
@@ -412,7 +414,7 @@ const Home = () => {
                       </div>
                       <div className="text-left min-w-0 flex-1">
                         <div className="text-xs sm:text-sm md:text-base font-bold text-gray-800 group-hover:text-primary transition-colors duration-300 truncate">Mohammed Ajmal NK</div>
-                        <div className="text-xs sm:text-sm text-gray-600 truncate">Lead Instructor @ Skill Mount</div>
+                        <div className="text-xs sm:text-sm text-gray-600 truncate">Lead Instructor @ SkillMount</div>
                         <div className="text-xs sm:text-sm text-green-600 font-medium">● Available Now</div>
                       </div>
                     </a>
@@ -425,7 +427,7 @@ const Home = () => {
       
         {/* Vision & Mission Section - Enhanced with Scroll Animation */}
         <ContainerScrollAnimation direction="up" speed="slow">
-          <section className="pt-16  bg-background relative overflow-hidden">
+          <section className="pt-4 sm:pt-16 bg-background relative overflow-hidden">
             {/* Subtle texture overlay */}
             <div className="absolute inset-0 opacity-[0.01]" style={{
               backgroundImage: 'linear-gradient(45deg, transparent 25%, currentColor 25%, currentColor 50%, transparent 50%, transparent 75%, currentColor 75%)',
@@ -490,7 +492,7 @@ const Home = () => {
       
         {/* Student Categories - Enhanced with Scroll Animation */}
         <ContainerScrollAnimation direction="up" speed="normal">
-          <section className="pt-16  bg-background relative overflow-hidden">
+          <section className="pt-4 sm:pt-16 bg-background relative overflow-hidden">
             {/* Minimal ambient lighting */}
             <div className="absolute top-1/4 right-1/4 w-[300px] h-[300px] bg-primary/[0.02] rounded-full blur-3xl pointer-events-none"></div>
             <div className="absolute bottom-1/4 left-1/4 w-[400px] h-[400px] bg-accent/[0.02] rounded-full blur-3xl pointer-events-none"></div>
@@ -516,7 +518,7 @@ const Home = () => {
                 to="/students?category=top-performers"
                 gradient="bg-gradient-to-br from-amber-400 via-orange-400 to-yellow-500"
                 icon={Award}
-                title="Top Performers @ Skill Mount"
+                title="Top Performers @ SkillMount"
                 count="Elite Portfolio Showcase"
                 delay={0}
               />
@@ -554,35 +556,26 @@ const Home = () => {
       
         {/* Top Performers Showcase - Enhanced with Scroll Animation */}
         <ContainerScrollAnimation direction="up" speed="slow">
-          <section className="pt-16 bg-background relative overflow-hidden">
+          <section className="pt-4 sm:pt-16 bg-background relative overflow-hidden">
             {/* Minimal ambient gradient */}
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/[0.015] rounded-full blur-3xl pointer-events-none"></div>
             
             <div className="container mx-auto px-6 max-w-7xl relative">
               {/* Section Header - Enhanced with Text Generation */}
-              <div className="flex flex-col md:flex-row md:items-end justify-between mb-24 gap-8">
-                <div className="space-y-6">
-                  <div className="inline-flex items-center gap-2.5 bg-gradient-to-r from-amber-500/8 to-orange-500/8 border border-amber-500/15 rounded-full px-5 py-2">
-                    <Award className="w-3.5 h-3.5 text-amber-600" />
-                    <span className="text-xs font-medium text-amber-600 tracking-wide">Elite Showcase</span>
-                  </div>
-                  <TextGenerateEffect 
-                    words="Top Performers" 
-                    className="text-5xl md:text-7xl font-bold text-foreground tracking-tight leading-[0.95]"
-                    duration={1.5}
-                  />
-                  <p className="text-xl md:text-2xl text-muted-foreground max-w-2xl leading-relaxed font-light">
-                    Exceptional students who have demonstrated outstanding skills, creativity, and dedication to their craft
-                  </p>
+              <div className="text-center mb-24">
+                <div className="inline-flex items-center gap-2.5 bg-gradient-to-r from-amber-500/8 to-orange-500/8 border border-amber-500/15 rounded-full px-5 py-2 mb-8">
+                  <Award className="w-3.5 h-3.5 text-amber-600" />
+                  <span className="text-xs font-medium text-amber-600 tracking-wide">Elite Showcase</span>
                 </div>
-              <Link 
-                to="/students?category=top-performers" 
-                className="group flex items-center gap-3 text-base font-semibold text-foreground hover:text-amber-600 transition-all duration-300 px-8 py-4 rounded-full border border-border/30 hover:border-amber-500/30 hover:bg-amber-500/5 hover:shadow-lg hover:shadow-amber-500/10"
-              >
-                View All Top Performers
-                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
-              </Link>
-            </div>
+                <TextGenerateEffect 
+                  words="Top Performers" 
+                  className="text-5xl md:text-7xl font-bold text-foreground mb-8 tracking-tight leading-[0.95]"
+                  duration={1.5}
+                />
+                <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed font-light">
+                  Exceptional students who have demonstrated outstanding skills, creativity, and dedication to their craft
+                </p>
+              </div>
             
             {/* Portfolio Grid - Clean Layout */}
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
@@ -619,7 +612,7 @@ const Home = () => {
       
         {/* Latest Batch Showcase - Enhanced with Scroll Animation */}
         <ContainerScrollAnimation direction="up" speed="normal">
-          <section className="pt-16 bg-background relative overflow-hidden">
+          <section className="pt-4 sm:pt-16 bg-background relative overflow-hidden">
             {/* Subtle texture */}
             <div className="absolute inset-0 opacity-[0.01]" style={{
               backgroundImage: 'radial-gradient(circle at 1px 1px, currentColor 1px, transparent 0)',
@@ -627,29 +620,20 @@ const Home = () => {
             }}></div>
             
             <div className="container mx-auto px-6 max-w-7xl relative">
-              <div className="flex flex-col md:flex-row md:items-end justify-between mb-24 gap-8">
-                <div className="space-y-6">
-                  <div className="inline-flex items-center gap-2.5 bg-gradient-to-r from-primary/8 to-primary/5 border border-primary/15 rounded-full px-5 py-2">
-                    <div className="w-2 h-2 bg-primary rounded-full animate-pulse"></div>
-                    <span className="text-xs font-medium text-primary tracking-wide">Batch 12 • October 2025</span>
-                  </div>
-                  <TextGenerateEffect 
-                    words="Latest Graduates" 
-                    className="text-5xl md:text-7xl font-bold text-foreground tracking-tight leading-[0.95]"
-                    duration={1.5}
-                  />
-                  <p className="text-xl md:text-2xl text-muted-foreground max-w-2xl leading-relaxed font-light">
-                    Meet our newest batch of talented students ready to make their mark in the digital world
-                  </p>
+              <div className="text-center mb-24">
+                <div className="inline-flex items-center gap-2.5 bg-gradient-to-r from-primary/8 to-primary/5 border border-primary/15 rounded-full px-5 py-2 mb-8">
+                  <div className="w-2 h-2 bg-primary rounded-full animate-pulse"></div>
+                  <span className="text-xs font-medium text-primary tracking-wide">Batch 12 • October 2025</span>
                 </div>
-              <Link 
-                to="/students" 
-                className="hidden md:flex group items-center gap-3 text-base font-semibold text-foreground hover:text-primary transition-all duration-300 px-8 py-4 rounded-full border border-border/30 hover:border-primary/30 hover:bg-primary/5 hover:shadow-lg hover:shadow-primary/10"
-              >
-                View All Students
-                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
-              </Link>
-            </div>
+                <TextGenerateEffect 
+                  words="Latest Graduates" 
+                  className="text-5xl md:text-7xl font-bold text-foreground mb-8 tracking-tight leading-[0.95]"
+                  duration={1.5}
+                />
+                <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed font-light">
+                  Meet our newest batch of talented students ready to make their mark in the digital world
+                </p>
+              </div>
             
             {/* Portfolio Grid - Clean Layout */}
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
@@ -686,33 +670,41 @@ const Home = () => {
       
         {/* Total Batches Summary - Enhanced with Scroll Animation */}
         <ContainerScrollAnimation direction="up" speed="slow">
-          <section className="pt-16 bg-background relative overflow-hidden">
+          <section className="pt-4 sm:pt-16 bg-background relative overflow-hidden">
             {/* Minimal ambient lighting */}
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-primary/[0.01] rounded-full blur-3xl pointer-events-none"></div>
             
             <div className="container mx-auto px-6 max-w-6xl relative">
               <WobbleCard className="border border-border/30 rounded-3xl overflow-hidden bg-card/30 backdrop-blur-sm shadow-xl hover:shadow-2xl transition-all duration-700">
-                <div className="p-16 text-center">
-                  <div className="inline-flex items-center gap-3 bg-primary/8 border border-primary/15 rounded-full px-6 py-3 mb-12">
-                    <GraduationCap className="w-5 h-5 text-primary" />
-                    <span className="text-sm font-medium text-primary tracking-wide">Our Journey</span>
+                <div className="p-6 sm:p-8 md:p-12 lg:p-16 text-center">
+                  <div className="inline-flex items-center gap-3 bg-primary/8 border border-primary/15 rounded-full px-4 sm:px-6 py-2 sm:py-3 mb-6 sm:mb-8 md:mb-12">
+                    <GraduationCap className="w-4 h-4 sm:w-5 sm:h-5 text-primary" />
+                    <span className="text-xs sm:text-sm font-medium text-primary tracking-wide">Our Journey</span>
                   </div>
-                  <TextGenerateEffect 
-                    words={`${BATCHES.length} Monthly Batches`} 
-                    className="text-6xl md:text-8xl font-bold text-foreground mb-8 tracking-tight leading-[0.9]"
-                    duration={2}
-                  />
-                <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed mb-12 font-light">
+                  <div className="text-3xl sm:text-4xl md:text-6xl lg:text-8xl font-bold text-foreground mb-6 sm:mb-8 tracking-tight leading-[0.9]">
+                    <TextGenerateEffect 
+                      words={`${BATCHES.length} Monthly`} 
+                      className="block"
+                      duration={2}
+                    />
+                    <TextGenerateEffect 
+                      words="Batches" 
+                      className="block bg-gradient-to-r from-primary via-primary/90 to-primary/70 bg-clip-text text-transparent"
+                      duration={2}
+                    />
+                  </div>
+                <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed mb-8 sm:mb-10 md:mb-12 font-light px-4 sm:px-0">
                   From {BATCHES[BATCHES.length - 1].displayName} to {BATCHES[0].displayName}, we've nurtured 
                   over {stats.totalStudents} students across diverse specializations in WordPress, No-Code tools, and CMS platforms.
                 </p>
                 <Link to="/students">
                   <Button 
-                    size="lg"
-                    className="rounded-full px-12 h-16 text-base font-semibold shadow-xl shadow-primary/20 hover:shadow-2xl hover:shadow-primary/30 transition-all duration-500 group"
+                    size="sm"
+                    className="rounded-full px-6 sm:px-8 md:px-12 h-10 sm:h-12 md:h-16 text-xs sm:text-sm md:text-base font-semibold shadow-xl shadow-primary/20 hover:shadow-2xl hover:shadow-primary/30 transition-all duration-500 group"
                   >
-                    Explore All Batches
-                    <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
+                    <span className="hidden sm:inline">Explore All Batches</span>
+                    <span className="sm:hidden">Explore Batches</span>
+                    <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 ml-1 sm:ml-2 group-hover:translate-x-1 transition-transform duration-300" />
                   </Button>
                 </Link>
                 </div>
@@ -723,7 +715,7 @@ const Home = () => {
       
         {/* FAQ Snippet - Enhanced with Scroll Animation */}
         <ContainerScrollAnimation direction="up" speed="normal">
-          <section className="pt-16 bg-background relative overflow-hidden">
+          <section className="pt-4 sm:pt-16 bg-background relative overflow-hidden">
             {/* Subtle texture overlay */}
             <div className="absolute inset-0 opacity-[0.008]" style={{
               backgroundImage: 'linear-gradient(45deg, transparent 25%, currentColor 25%, currentColor 50%, transparent 50%, transparent 75%, currentColor 75%)',
@@ -736,11 +728,18 @@ const Home = () => {
                   <Sparkles className="w-3.5 h-3.5 text-primary" />
                   <span className="text-xs font-medium text-foreground tracking-wide">FAQ</span>
                 </div>
-                <TextGenerateEffect 
-                  words="Frequently Asked Questions" 
-                  className="text-5xl md:text-7xl font-bold text-foreground mb-8 tracking-tight leading-normal whitespace-nowrap"
-                  duration={1.5}
-                />
+                <div className="text-2xl sm:text-3xl md:text-5xl lg:text-7xl font-bold text-foreground mb-6 sm:mb-8 tracking-tight leading-tight">
+                  <TextGenerateEffect 
+                    words="Frequently Asked" 
+                    className="block"
+                    duration={1.5}
+                  />
+                  <TextGenerateEffect 
+                    words="Questions" 
+                    className="block bg-gradient-to-r from-primary via-primary/90 to-primary/70 bg-clip-text text-transparent"
+                    duration={1.5}
+                  />
+                </div>
                 <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed font-light">
                   Everything you need to know about our program and services
                 </p>
@@ -781,7 +780,7 @@ const Home = () => {
       
         {/* Testimonials - Enhanced with Scroll Animation */}
         <ContainerScrollAnimation direction="up" speed="slow">
-          <section className="pt-16 bg-background relative overflow-hidden">
+          <section className="pt-4 sm:pt-16 bg-background relative overflow-hidden">
             {/* Minimal ambient gradient */}
             <div className="absolute inset-0 bg-gradient-to-br from-primary/[0.01] via-transparent to-accent/[0.01]"></div>
             <div className="absolute top-1/4 left-1/4 w-[400px] h-[400px] bg-primary/[0.015] rounded-full blur-3xl pointer-events-none"></div>
@@ -799,26 +798,26 @@ const Home = () => {
                   duration={1.5}
                 />
                 <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed font-light">
-                  Hear from students who transformed their careers with Skill Mount
+                  Hear from students who transformed their careers with SkillMount
                 </p>
               </div>
             
             <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
               {[
                 {
-                  quote: "Skill Mount's WordPress training was exceptional. Mohammed Ajmal's teaching style made complex concepts easy to understand. Now I'm running my own web development agency!",
-                  name: "Rahul Kumar",
-                  role: "WordPress Developer"
+                  quote: "SkillMount's WordPress training was exceptional. Mohammed Ajmal's teaching style made complex concepts easy to understand. Now I'm running my own web development agency!",
+                  name: "Mubarak",
+                  role: "Founder @Mac Ads"
                 },
                 {
                   quote: "From zero coding knowledge to building professional e-commerce sites in just 6 weeks! The hands-on approach and project-based learning were game-changers for me.",
-                  name: "Mohammed Ajmal NK",
-                  role: "WooCommerce Specialist @ Freelance"
+                  name: "Rashida",
+                  role: "Digital Marketing Specialist @ SkillMount"
                 },
                 {
-                  quote: "The No-Code curriculum and personalized mentorship helped me land my dream job within 2 weeks of completing the course. Forever grateful to Skill Mount! Mohammed Ajmal NK",
+                  quote: "The No-Code curriculum and personalized mentorship helped me land my dream job within 2 weeks of completing the course. Forever grateful to SkillMount! Mohammed Ajmal NK",
                   name: "Murshid paravath",
-                  role: "CMS Developer @ InMark Media"
+                  role: "CEO @ InMark Media"
                 }
               ].map((testimonial, index) => (
                 <article
@@ -854,7 +853,7 @@ const Home = () => {
       
         {/* Materials Snippet - Enhanced with Scroll Animation */}
         <ContainerScrollAnimation direction="up" speed="normal">
-            <section className="pt-16 bg-background relative overflow-hidden">
+            <section className="pt-4 sm:pt-16 bg-background relative overflow-hidden">
             {/* Minimal ambient lighting */}
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-primary/[0.015] rounded-full blur-3xl pointer-events-none"></div>
             
@@ -920,7 +919,7 @@ const Home = () => {
       
         {/* CTA Section - Enhanced with Scroll Animation */}
         <ContainerScrollAnimation direction="up" speed="slow">
-          <section className="pt-16 md:pt-16 bg-background relative overflow-hidden">
+          <section className="pt-4 sm:pt-16 bg-background relative overflow-hidden">
             {/* Ultra-subtle background pattern */}
             <div className="absolute inset-0" style={{
               backgroundImage: 'radial-gradient(circle at 2px 2px, rgb(var(--primary) / 0.02) 1px, transparent 0)',
@@ -947,25 +946,21 @@ const Home = () => {
               Join {stats.totalStudents} students who have launched successful careers in No-Code and CMS development
             </p>
             
-            <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-16">
+            <div className="flex flex-row gap-2 sm:gap-4 justify-center items-center mb-16">
               <Link to="/contact">
-                <Button 
-                  size="lg" 
-                  className="rounded-full px-16 h-18 text-lg font-semibold shadow-2xl shadow-primary/30 hover:shadow-primary/50 hover:scale-105 transition-all duration-500 group"
-                >
-                  <Mail className="w-6 h-6 mr-3" />
-                  Contact Us
-                  <ArrowRight className="w-6 h-6 ml-3 group-hover:translate-x-2 transition-transform duration-300" />
+                <Button size="sm" className="rounded-full px-4 sm:px-10 h-10 sm:h-14 text-xs sm:text-base font-semibold bg-primary hover:bg-primary/90 transition-all duration-300 group shadow-lg hover:shadow-xl">
+                  <Mail className="w-3 h-3 sm:w-4 sm:h-4 mr-1 sm:mr-2" />
+                  <span className="hidden sm:inline">Contact Us</span>
+                  <span className="sm:hidden">Contact</span>
+                  <ArrowRight className="w-3 h-3 sm:w-4 sm:h-4 ml-1 sm:ml-2 group-hover:translate-x-1 transition-transform duration-300" />
                 </Button>
               </Link>
               <Link to="/contact">
-                <Button 
-                  size="lg" 
-                  variant="outline" 
-                  className="rounded-full px-16 h-18 text-lg font-semibold border-border/30 hover:border-primary/30 hover:bg-primary/5 transition-all duration-500 group shadow-sm hover:shadow-lg hover:shadow-primary/10"
-                >
-                  <MessageSquare className="w-6 h-6 mr-3" />
-                  Raise a Ticket
+                <Button size="sm" variant="outline" className="rounded-full px-4 sm:px-10 h-10 sm:h-14 text-xs sm:text-base font-semibold border-border/40 hover:border-primary/50 hover:bg-primary/5 hover:text-primary transition-all duration-300 group">
+                  <MessageSquare className="w-3 h-3 sm:w-4 sm:h-4 mr-1 sm:mr-2 group-hover:text-primary" />
+                  <span className="hidden sm:inline">Raise a Ticket</span>
+                  <span className="sm:hidden">Ticket</span>
+                  <ArrowRight className="w-3 h-3 sm:w-4 sm:h-4 ml-1 sm:ml-2 group-hover:translate-x-1 transition-transform duration-300" />
                 </Button>
               </Link>
             </div>

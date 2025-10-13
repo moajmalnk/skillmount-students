@@ -1,4 +1,4 @@
-# robots.txt for Skill Mount Students Portfolio Gallery
+# robots.txt for SkillMount Students Portfolio Gallery
 
 User-agent: *
 Allow: /

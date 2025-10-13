@@ -19,7 +19,7 @@ const Navbar = () => {
           <Link to="/" className="flex items-center space-x-2" onClick={closeMobileMenu}>
             <img 
               src="https://moajmalnk.in/assets/img/logo/logo-lightaj.png" 
-              alt="Mohammed Ajmal NK - Skill Mount" 
+              alt="Mohammed Ajmal NK - SkillMount" 
               className="h-8 sm:h-10 md:h-12 w-auto object-contain"
             />
           </Link>
