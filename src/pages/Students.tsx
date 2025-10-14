@@ -228,7 +228,7 @@ const Students = () => {
         
         {/* Filters Section - Enhanced with Scroll Animation */}
         <ContainerScrollAnimation direction="up" speed="normal">
-          <section className="pt-4 sm:pt-16 bg-background relative overflow-hidden">
+          <section className="pt-4 sm:pt-8 bg-background relative overflow-hidden">
             {/* Subtle texture overlay */}
             <div className="absolute inset-0 opacity-[0.008]" style={{
               backgroundImage: 'linear-gradient(45deg, transparent 25%, currentColor 25%, currentColor 50%, transparent 50%, transparent 75%, currentColor 75%)',
@@ -333,7 +333,7 @@ const Students = () => {
         
         {/* Student Grid Section - Enhanced with Scroll Animation */}
         <ContainerScrollAnimation direction="up" speed="slow">
-          <section className="pt-4 sm:pt-16 bg-background relative overflow-hidden">
+          <section className="pt-4 sm:pt-6 bg-background relative overflow-hidden">
             {/* Minimal ambient gradient */}
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/[0.015] rounded-full blur-3xl pointer-events-none"></div>
             
