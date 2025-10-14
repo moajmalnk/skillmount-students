@@ -2,6 +2,7 @@ import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
+import { ThemeToggle } from "@/components/ThemeToggle";
 
 const Navbar = () => {
   const location = useLocation();
@@ -43,8 +44,9 @@ const Navbar = () => {
             </Link>
           </div>
           
-          {/* Desktop Admin Login */}
-          <div className="hidden md:block">
+          {/* Desktop Admin Login & Theme Toggle */}
+          <div className="hidden md:flex items-center gap-2">
+            <ThemeToggle />
             <Link to="/admin">
               <Button variant="outline" size="sm">Admin Login</Button>
             </Link>
@@ -107,11 +109,14 @@ const Navbar = () => {
                 Contact
               </Button>
             </Link>
-            <Link to="/admin" onClick={closeMobileMenu} className="block pt-2">
-              <Button variant="outline" className="w-full">
-                Admin Login
-              </Button>
-            </Link>
+            <div className="flex items-center gap-2 pt-2">
+              <ThemeToggle />
+              <Link to="/admin" onClick={closeMobileMenu} className="flex-1">
+                <Button variant="outline" className="w-full">
+                  Admin Login
+                </Button>
+              </Link>
+            </div>
           </div>
         )}
       </div>
