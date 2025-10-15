@@ -111,7 +111,7 @@ const Students = () => {
 
       <div className="min-h-screen bg-background">
         {/* Hero Section - Enhanced Design */}
-        <section className="min-h-screen bg-background relative">
+        <section className="py-10 md:py-12 bg-background relative">
           {/* Professional Background Layers */}
           <div className="absolute inset-0">
             {/* Primary Background Image */}
@@ -138,17 +138,17 @@ const Students = () => {
           
           <div className="container mx-auto px-6 max-w-7xl relative z-10">
             <div className={`transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-              <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 md:gap-16 lg:gap-20 items-center min-h-[70vh] sm:min-h-[75vh] md:min-h-[80vh]">
+              <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 md:gap-10 lg:gap-12 items-center">
                 {/* Left Column - Content */}
-                <div className="space-y-6 sm:space-y-8 md:space-y-10">
+                <div className="space-y-4 sm:space-y-5 md:space-y-6">
                   {/* Badge */}
-                  <div className="mt-10 flex items-center justify-center gap-2.5 bg-primary/[0.03] border border-primary/10 rounded-full px-5 py-2 w-fit mx-auto sm:mx-0">
+                  <div className="mt-4 md:mt-6 flex items-center justify-center gap-2.5 bg-primary/[0.03] border border-primary/10 rounded-full px-5 py-2 w-fit mx-auto sm:mx-0">
                     <Sparkles className="w-3.5 h-3.5 text-primary" />
                     <span className="text-xs font-medium text-foreground tracking-wide">Student Directory</span>
                   </div>
                   
-                  <div className="space-y-8">
-                    <div className="space-y-4">
+                  <div className="space-y-5">
+                    <div className="space-y-3">
                       <TextGenerateEffect 
                         words="Student Directory" 
                         className="text-5xl md:text-7xl lg:text-8xl font-bold leading-tight text-foreground tracking-tight max-w-4xl"
@@ -169,7 +169,7 @@ const Students = () => {
                       </div>
                     </div>
                     
-                    <div className="space-y-4">
+                    <div className="space-y-3">
                       <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed font-light">
                         Browse <span className="font-semibold text-foreground">1200+</span> talented students across <span className="font-semibold text-foreground">{BATCHES.length} batches</span>
                       </p>
@@ -181,7 +181,7 @@ const Students = () => {
                   </div>
 
                   {/* Stats Grid */}
-                  <div className="grid grid-cols-2 gap-8 py-8 border-t border-border/20">
+                  <div className="grid grid-cols-2 gap-6 py-6 border-t border-border/20">
                     <div className="space-y-2">
                       <div className="text-4xl md:text-5xl font-bold text-primary">{stats.totalStudents}</div>
                       <div className="text-sm text-muted-foreground font-medium">Total Students</div>
@@ -227,8 +227,8 @@ const Students = () => {
         </section>
         
         {/* Filters Section - Enhanced with Scroll Animation */}
-        <ContainerScrollAnimation direction="up" speed="normal">
-          <section className="pt-4 sm:pt-8 bg-background relative overflow-hidden">
+        <ContainerScrollAnimation direction="up" speed="normal" distance={28}>
+          <section className="pt-0 sm:pt-2 bg-background relative overflow-hidden">
             {/* Subtle texture overlay */}
             <div className="absolute inset-0 opacity-[0.008]" style={{
               backgroundImage: 'linear-gradient(45deg, transparent 25%, currentColor 25%, currentColor 50%, transparent 50%, transparent 75%, currentColor 75%)',
@@ -236,14 +236,14 @@ const Students = () => {
             }}></div>
             
             <div className="container mx-auto px-6 max-w-7xl relative">
-        <div className="text-center mb-12">
-                <div className="inline-flex items-center gap-2.5 bg-primary/[0.03] border border-primary/10 rounded-full px-5 py-2 mb-8">
+        <div className="text-center mb-8">
+                <div className="inline-flex items-center gap-2.5 bg-primary/[0.03] border border-primary/10 rounded-full px-5 py-2 mb-6">
                   <Filter className="w-3.5 h-3.5 text-primary" />
                   <span className="text-xs font-medium text-foreground tracking-wide">Advanced Filters</span>
                 </div>
                 <TextGenerateEffect 
                   words="Filter & Discover" 
-                  className="text-4xl md:text-6xl font-bold text-foreground mb-6 tracking-tight leading-[0.95]"
+                  className="text-4xl md:text-6xl font-bold text-foreground mb-4 tracking-tight leading-[0.95]"
                   duration={1.5}
                 />
                 <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed font-light">
@@ -251,9 +251,9 @@ const Students = () => {
           </p>
         </div>
         
-              <WobbleCard className="border border-border/30 rounded-3xl overflow-hidden bg-card/30 backdrop-blur-sm shadow-xl hover:shadow-2xl transition-all duration-700 mb-12">
-                <div className="p-8 md:p-12">
-                  <div className="grid md:grid-cols-12 gap-6 mb-8">
+              <WobbleCard className="border border-border/30 rounded-3xl overflow-hidden bg-card/30 backdrop-blur-sm shadow-xl hover:shadow-2xl transition-all duration-700 mb-4">
+                <div className="p-6 md:p-8">
+                  <div className="grid md:grid-cols-12 gap-6 mb-6">
             <div className="md:col-span-5 relative">
               <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground" />
               <Input
@@ -302,8 +302,8 @@ const Students = () => {
           </div>
           
           {/* Skills Filter */}
-                  <div className="border-t border-border/20 pt-8">
-                    <div className="flex items-center gap-3 mb-6">
+                  <div className="border-t border-border/20 pt-6">
+                    <div className="flex items-center gap-3 mb-4">
                       <div className="w-8 h-8 bg-gradient-to-br from-primary/10 to-primary/5 rounded-xl flex items-center justify-center">
                         <Award className="w-4 h-4 text-primary" />
                       </div>
@@ -332,21 +332,21 @@ const Students = () => {
         </ContainerScrollAnimation>
         
         {/* Student Grid Section - Enhanced with Scroll Animation */}
-        <ContainerScrollAnimation direction="up" speed="slow">
-          <section className="pt-4 sm:pt-6 bg-background relative overflow-hidden">
+        <ContainerScrollAnimation direction="up" speed="slow" distance={28}>
+          <section className="pt-0 sm:pt-2 bg-background relative overflow-hidden">
             {/* Minimal ambient gradient */}
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/[0.015] rounded-full blur-3xl pointer-events-none"></div>
             
             <div className="container mx-auto px-6 max-w-7xl relative">
               {/* Section Header */}
-              <div className="text-center mb-16">
-                <div className="inline-flex items-center gap-2.5 bg-primary/[0.03] border border-primary/10 rounded-full px-5 py-2 mb-8">
+              <div className="text-center mb-6">
+                <div className="inline-flex items-center gap-2.5 bg-primary/[0.03] border border-primary/10 rounded-full px-5 py-2 mb-6">
                   <Users className="w-3.5 h-3.5 text-primary" />
                   <span className="text-xs font-medium text-foreground tracking-wide">Student Showcase</span>
                 </div>
                 <TextGenerateEffect 
                   words="Student Portfolios" 
-                  className="text-4xl md:text-6xl font-bold text-foreground mb-6 tracking-tight leading-[0.95]"
+                  className="text-4xl md:text-6xl font-bold text-foreground mb-4 tracking-tight leading-[0.95]"
                   duration={1.5}
                 />
                 <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed font-light">
@@ -359,7 +359,7 @@ const Students = () => {
         
         {/* Student Grid */}
         {filteredStudents.length > 0 ? (
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 mb-16">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 mb-8">
                   {filteredStudents.map((student, index) => (
                     <div 
                       key={student.id}
@@ -396,12 +396,12 @@ const Students = () => {
               
               {/* Footer CTA */}
               {filteredStudents.length > 0 && (
-                <div className="text-center pt-16 border-t border-border/20">
-                  <div className="inline-flex items-center gap-3 bg-gradient-to-r from-primary/8 to-accent/8 border border-primary/15 rounded-full px-6 py-3 mb-8">
+                <div className="text-center pt-8 border-t border-border/20">
+                  <div className="inline-flex items-center gap-3 bg-gradient-to-r from-primary/8 to-accent/8 border border-primary/15 rounded-full px-6 py-3 mb-6">
                     <Sparkles className="w-4 h-4 text-primary" />
                     <span className="text-sm font-medium text-primary tracking-wide">Ready to Connect?</span>
                   </div>
-                  <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-2xl mx-auto leading-relaxed font-light">
+                  <p className="text-xl md:text-2xl text-muted-foreground mb-6 max-w-2xl mx-auto leading-relaxed font-light">
                     Found a student whose work inspires you? Reach out and start a conversation.
                   </p>
                   <div className="flex flex-row gap-4 justify-center items-center">

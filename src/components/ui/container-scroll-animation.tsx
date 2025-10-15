@@ -7,6 +7,7 @@ interface ContainerScrollAnimationProps {
   className?: string;
   direction?: "up" | "down";
   speed?: "slow" | "normal" | "fast";
+  distance?: number; // maximum translate distance in px
 }
 
 export const ContainerScrollAnimation: React.FC<ContainerScrollAnimationProps> = ({
@@ -14,6 +15,7 @@ export const ContainerScrollAnimation: React.FC<ContainerScrollAnimationProps> =
   className,
   direction = "up",
   speed = "normal",
+  distance = 60,
 }) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
@@ -31,8 +33,8 @@ export const ContainerScrollAnimation: React.FC<ContainerScrollAnimationProps> =
     scrollYProgress,
     [0, 1],
     direction === "up" 
-      ? [100 * speedMap[speed], -100 * speedMap[speed]]
-      : [-100 * speedMap[speed], 100 * speedMap[speed]]
+      ? [distance * speedMap[speed], -distance * speedMap[speed]]
+      : [-distance * speedMap[speed], distance * speedMap[speed]]
   );
 
   const opacity = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0, 1, 1, 0]);
