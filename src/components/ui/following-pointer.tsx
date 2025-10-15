@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 import { cn } from "@/lib/utils";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 interface FollowingPointerProps {
   children: React.ReactNode;
@@ -15,6 +16,7 @@ export const FollowingPointer: React.FC<FollowingPointerProps> = ({
   size = 200,
   trailSize = 20,
 }) => {
+  const isMobile = useIsMobile();
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [isHovering, setIsHovering] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
@@ -57,50 +59,54 @@ export const FollowingPointer: React.FC<FollowingPointerProps> = ({
 
   return (
     <div ref={containerRef} className={cn("relative", className)}>
-      {/* Custom cursor */}
-      <motion.div
-        className="fixed top-0 left-0 pointer-events-none z-50 mix-blend-difference"
-        style={{
-          x: springX,
-          y: springY,
-          rotateX,
-          rotateY,
-        }}
-        animate={{
-          scale: isHovering ? 1.2 : 1,
-        }}
-        transition={{ type: "spring", stiffness: 300, damping: 30 }}
-      >
-        <div
-          className="w-6 h-6 rounded-full bg-white"
-          style={{
-            transform: "translate(-50%, -50%)",
-          }}
-        />
-      </motion.div>
+      {!isMobile && (
+        <>
+          {/* Custom cursor */}
+          <motion.div
+            className="fixed top-0 left-0 pointer-events-none z-50 mix-blend-difference"
+            style={{
+              x: springX,
+              y: springY,
+              rotateX,
+              rotateY,
+            }}
+            animate={{
+              scale: isHovering ? 1.2 : 1,
+            }}
+            transition={{ type: "spring", stiffness: 300, damping: 30 }}
+          >
+            <div
+              className="w-6 h-6 rounded-full bg-white"
+              style={{
+                transform: "translate(-50%, -50%)",
+              }}
+            />
+          </motion.div>
 
-      {/* Trail effect */}
-      <motion.div
-        className="fixed top-0 left-0 pointer-events-none z-40"
-        style={{
-          x: springX,
-          y: springY,
-        }}
-        animate={{
-          scale: isHovering ? 2 : 1,
-          opacity: isHovering ? 0.3 : 0,
-        }}
-        transition={{ type: "spring", stiffness: 300, damping: 30 }}
-      >
-        <div
-          className="rounded-full bg-violet-500/20 blur-sm"
-          style={{
-            width: trailSize,
-            height: trailSize,
-            transform: "translate(-50%, -50%)",
-          }}
-        />
-      </motion.div>
+          {/* Trail effect */}
+          <motion.div
+            className="fixed top-0 left-0 pointer-events-none z-40"
+            style={{
+              x: springX,
+              y: springY,
+            }}
+            animate={{
+              scale: isHovering ? 2 : 1,
+              opacity: isHovering ? 0.3 : 0,
+            }}
+            transition={{ type: "spring", stiffness: 300, damping: 30 }}
+          >
+            <div
+              className="rounded-full bg-violet-500/20 blur-sm"
+              style={{
+                width: trailSize,
+                height: trailSize,
+                transform: "translate(-50%, -50%)",
+              }}
+            />
+          </motion.div>
+        </>
+      )}
 
       {/* Content */}
       <div className="relative z-10">{children}</div>
