@@ -207,18 +207,7 @@ const FAQPage = () => {
                       <div className="text-sm text-muted-foreground font-medium">Guidance</div>
                     </div>
                   </div>
-                  
-                  {/* Enhanced Search */}
-                  <div className="relative max-w-md mx-auto sm:mx-0">
-                    <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground" />
-            <Input
-                      placeholder="Search questions..."
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-                      className="pl-12 h-12 rounded-full border-border/40 bg-card/50 backdrop-blur-sm focus:border-primary/50 transition-all duration-300"
-            />
-          </div>
-        </div>
+                </div>
 
                 {/* Right Column - Professional Background with FAQ Stats */}
                 <div className="relative">

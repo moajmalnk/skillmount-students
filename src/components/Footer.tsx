@@ -318,7 +318,7 @@ const Footer = () => {
                     </div>
                     <button
                       onClick={openModal}
-                      className="group inline-flex items-center gap-2 px-4 sm:px-6 py-2 sm:py-2.5 bg-primary text-white rounded-lg hover:bg-primary/90 transition-all duration-300 hover:shadow-lg hover:shadow-primary/25 text-xs sm:text-sm font-medium flex-shrink-0"
+                      className="group inline-flex items-center gap-2 px-4 sm:px-6 py-2 sm:py-2.5 bg-gray-900 text-white hover:bg-gray-800 dark:bg-white dark:text-gray-900 dark:hover:bg-gray-100 rounded-lg transition-all duration-300 hover:shadow-lg hover:shadow-primary/25 text-xs sm:text-sm font-medium flex-shrink-0"
                       aria-label="Subscribe to newsletter"
                     >
                       <span>Subscribe</span>
