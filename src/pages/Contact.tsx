@@ -5,7 +5,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Mail, Phone, MapPin, Send, AlertCircle, ArrowRight, Sparkles, MessageSquare, Clock, Users, ExternalLink } from "lucide-react";
+import { Mail, Phone, MapPin, Send, AlertCircle, ArrowRight, Sparkles, MessageSquare, Clock, Users, ExternalLink, Star } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import SEO from "@/components/SEO";
 import OptimizedImage from "@/components/OptimizedImage";
@@ -38,6 +38,13 @@ const Contact = () => {
     description: ""
   });
   
+  const [feedbackForm, setFeedbackForm] = useState({
+    name: "",
+    email: "",
+    rating: 5,
+    feedback: ""
+  });
+  
   const handleContactSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     toast({
@@ -54,6 +61,15 @@ const Contact = () => {
       description: "Your support ticket has been submitted. Ticket ID: #" + Math.floor(Math.random() * 10000),
     });
     setTicketForm({ name: "", email: "", subject: "", priority: "medium", description: "" });
+  };
+  
+  const handleFeedbackSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    toast({
+      title: "Feedback Received!",
+      description: "Thank you for your valuable feedback. We appreciate it!",
+    });
+    setFeedbackForm({ name: "", email: "", rating: 5, feedback: "" });
   };
 
   // Structured Data for SEO
@@ -402,7 +418,7 @@ const Contact = () => {
               </div>
               
           <Tabs defaultValue="contact" className="w-full">
-                <TabsList className="grid w-full grid-cols-2 mb-8 bg-card/30 backdrop-blur-sm border border-border/30 rounded-2xl p-1">
+                <TabsList className="grid w-full grid-cols-3 mb-8 bg-card/30 backdrop-blur-sm border border-border/30 rounded-2xl p-1">
                   <TabsTrigger 
                     value="contact" 
                     className="rounded-xl data-[state=active]:bg-primary data-[state=active]:text-primary-foreground data-[state=active]:shadow-lg transition-all duration-300"
@@ -414,6 +430,12 @@ const Contact = () => {
                     className="rounded-xl data-[state=active]:bg-primary data-[state=active]:text-primary-foreground data-[state=active]:shadow-lg transition-all duration-300"
                   >
                     Raise a Ticket
+                  </TabsTrigger>
+                  <TabsTrigger 
+                    value="feedback" 
+                    className="rounded-xl data-[state=active]:bg-primary data-[state=active]:text-primary-foreground data-[state=active]:shadow-lg transition-all duration-300"
+                  >
+                    Feedbacks
                   </TabsTrigger>
             </TabsList>
             
@@ -596,6 +618,114 @@ const Contact = () => {
                         >
                           <AlertCircle className="w-5 h-5 mr-2 group-hover:rotate-12 transition-transform duration-300" />
                       Submit Ticket
+                          <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
+                    </Button>
+                  </form>
+                    </div>
+                  </WobbleCard>
+            </TabsContent>
+            
+            {/* Feedback Form */}
+            <TabsContent value="feedback">
+                  <WobbleCard className="border border-border/30 rounded-3xl hover:border-primary/20 hover:shadow-xl hover:shadow-primary/5 transition-all duration-700 bg-card/30 backdrop-blur-sm overflow-hidden">
+                    <div className="p-8 md:p-10">
+                      <div className="text-center mb-8">
+                        <div className="w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-primary/8 to-primary/4 rounded-2xl flex items-center justify-center shadow-lg shadow-primary/5">
+                          <Star className="w-8 h-8 text-primary" strokeWidth={1.2} />
+                        </div>
+                        <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-2">Share Your Feedback</h3>
+                        <p className="text-muted-foreground">Help us improve by sharing your experience</p>
+                      </div>
+                      
+                  <form onSubmit={handleFeedbackSubmit} className="space-y-6">
+                        <div className="grid md:grid-cols-2 gap-6">
+                          <div className="space-y-3">
+                            <Label htmlFor="feedback-name" className="text-sm font-semibold text-foreground">Full Name *</Label>
+                        <Input
+                          id="feedback-name"
+                          placeholder="John Doe"
+                          value={feedbackForm.name}
+                          onChange={(e) => setFeedbackForm({ ...feedbackForm, name: e.target.value })}
+                          required
+                              className="h-12 rounded-xl border-border/30 focus:border-primary/50 focus:ring-primary/20 transition-all duration-300"
+                        />
+                      </div>
+                      
+                          <div className="space-y-3">
+                            <Label htmlFor="feedback-email" className="text-sm font-semibold text-foreground">Email *</Label>
+                        <Input
+                          id="feedback-email"
+                          type="email"
+                          placeholder="john@example.com"
+                          value={feedbackForm.email}
+                          onChange={(e) => setFeedbackForm({ ...feedbackForm, email: e.target.value })}
+                          required
+                              className="h-12 rounded-xl border-border/30 focus:border-primary/50 focus:ring-primary/20 transition-all duration-300"
+                        />
+                      </div>
+                    </div>
+                    
+                        <div className="space-y-3">
+                          <Label className="text-sm font-semibold text-foreground">Rate Your Experience *</Label>
+                          <div className="flex items-center justify-center gap-3 p-6 bg-gradient-to-r from-primary/5 to-accent/5 rounded-2xl border border-primary/10">
+                            {[1, 2, 3, 4, 5].map((star) => (
+                              <button
+                                key={star}
+                                type="button"
+                                onClick={() => setFeedbackForm({ ...feedbackForm, rating: star })}
+                                className="transition-all duration-300 hover:scale-125 focus:outline-none"
+                                aria-label={`Rate ${star} stars`}
+                              >
+                                <Star 
+                                  className={`w-10 h-10 transition-all duration-300 ${
+                                    star <= feedbackForm.rating 
+                                      ? 'fill-primary text-primary drop-shadow-lg' 
+                                      : 'text-muted-foreground/30 hover:text-muted-foreground/50'
+                                  }`}
+                                  strokeWidth={1.5}
+                                />
+                              </button>
+                            ))}
+                          </div>
+                          <p className="text-center text-sm text-muted-foreground mt-2">
+                            {feedbackForm.rating === 5 && "Excellent! We're glad you had a great experience"}
+                            {feedbackForm.rating === 4 && "Great! Thank you for your positive feedback"}
+                            {feedbackForm.rating === 3 && "Good! We'll work on making it better"}
+                            {feedbackForm.rating === 2 && "We're sorry. Please tell us how we can improve"}
+                            {feedbackForm.rating === 1 && "We apologize. Your feedback helps us improve"}
+                          </p>
+                        </div>
+                    
+                        <div className="space-y-3">
+                          <Label htmlFor="feedback-message" className="text-sm font-semibold text-foreground">Your Feedback *</Label>
+                      <Textarea
+                        id="feedback-message"
+                        placeholder="Tell us about your experience with our training programs..."
+                        rows={6}
+                        value={feedbackForm.feedback}
+                        onChange={(e) => setFeedbackForm({ ...feedbackForm, feedback: e.target.value })}
+                        required
+                            className="rounded-xl border-border/30 focus:border-primary/50 focus:ring-primary/20 transition-all duration-300 resize-none"
+                      />
+                    </div>
+                    
+                        <div className="flex items-start gap-3 p-6 bg-gradient-to-r from-primary/5 to-accent/5 rounded-2xl border border-primary/10">
+                          <Sparkles className="w-6 h-6 text-primary flex-shrink-0 mt-0.5" />
+                          <div>
+                            <p className="text-sm font-semibold text-foreground mb-1">Your Voice Matters</p>
+                            <p className="text-sm text-muted-foreground leading-relaxed">
+                        Your feedback helps us improve our training programs and provide better support to all students.
+                      </p>
+                          </div>
+                    </div>
+                    
+                        <Button 
+                          type="submit" 
+                          size="lg" 
+                          className="w-full h-14 rounded-xl bg-primary hover:bg-primary/90 transition-all duration-300 group shadow-lg hover:shadow-xl hover:shadow-primary/20"
+                        >
+                          <Star className="w-5 h-5 mr-2 group-hover:rotate-12 transition-transform duration-300" />
+                      Submit Feedback
                           <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
                     </Button>
                   </form>
